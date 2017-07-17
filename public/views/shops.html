@@ -1,0 +1,26 @@
+<div class = "topbar">
+    <div class = "title">Community Salons</div>
+</div>
+<div class="navbar">
+    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
+    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
+    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
+    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li> 
+    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
+</div>
+<div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons">
+    <div class="fl-left">
+        <div>
+            <h2 id="h2"><a ng-click = "chosen(salon)"><u>{{salon.name}}</u></a></h2>
+            <div>
+                <div class="list-item">
+                    <div class = "info">Address: 
+                        {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br><div class = "image"><img src = "{{salon.ownImg}}" /></div></div>
+                    <div class = "info">Schedule: <br> {{salon.Monday}} <br> {{salon.Tuesday}}<br> {{salon.Wednesday}} <br> {{salon.Thursday}}<br> {{salon.Friday}} <br> {{salon.Saturday}}
+                    <br> {{salon.Sunday}} <br><br> phone: {{salon.phone}}</div> 
+                </div>
+                <div class = "info"><img src = "{{salon.img}}" /></div>
+            </div>
+        </div>
+    </div>
+</div>

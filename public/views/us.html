@@ -1,0 +1,36 @@
+<div class = "topbar">
+    <div class = "title"><b>Community Salons</b><div class = slogan><b>"It's more then hair!"</b>
+        </div></div>
+</div>
+<div class="navbar">
+    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
+    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
+    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
+    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li>
+    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
+</div>
+<div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "worker in workers">
+    <div class="fl-left2">
+        <div>
+            <h2 id ="h2">{{worker.name}}</h2>
+            <div>
+                <div class="list-item2">
+                    <div class = "infoUs">
+                        <div class = "imageUs">
+                            <img src = "{{worker.img}}"/><br>
+                            <span style="color:blue">Title: </span>{{worker.title}}
+                        </div>
+                    </div>
+                    <div class = "infoUs">
+                        <span style="color:blue">Telephone:</span> {{worker.number}}
+                        <br><br><br><br><br><p><span style="color:blue">Business Address:</span> 186 Brown Ln, Gainesboro, TN, 38562
+                        </p>
+                    </div>
+                    <div class = "infoUs">
+                        <span style="color:blue">Contribution:</span> <br>{{worker.disc}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
