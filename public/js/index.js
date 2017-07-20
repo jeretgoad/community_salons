@@ -43,7 +43,9 @@
                 Sunday: "Sun. Closed",
                 distance: 2.4,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon1.jpg"
+                img: "../IMG/styleSalon1.jpg",
+                ifLink: true,
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "Style Cutz",
@@ -62,7 +64,8 @@
                 Sunday: "Sun. 1-5",
                 distance: 6.6,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon2.jpg"
+                img: "../IMG/styleSalon2.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "Beaut Cutz",
@@ -81,7 +84,8 @@
                 Sunday: "Sun. 9-5",
                 distance: 12,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon3.jpg"
+                img: "../IMG/styleSalon3.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             }
             
         ]
@@ -107,7 +111,8 @@
                 Sunday: "Sun. Closed",
                 distance: 10,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon1.jpg"
+                img: "../IMG/barberSalon1.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "Barber 101",
@@ -126,7 +131,8 @@
                 Sunday: "Sun. Closed",
                 distance: 0.01,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon2.jpg"
+                img: "../IMG/barberSalon2.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "Buzz",
@@ -145,7 +151,8 @@
                 Sunday: "Sun. Closed",
                 distance: 0.2,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon3.jpg"
+                img: "../IMG/barberSalon3.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             }
             ]
     };
@@ -169,7 +176,8 @@
                 Sunday: "Sun. Closed",
                 distance: 3,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon1.jpg"
+                img: "../IMG/nailSalon1.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "We Did Em",
@@ -187,7 +195,8 @@
                 Sunday: "Sun. Closed",
                 distance: 5.4,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon2.jpg"
+                img: "../IMG/nailSalon2.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             },
             {
                 name: "County Nails",
@@ -205,7 +214,8 @@
                 Sunday: "Sun. Closed",
                 distance: 0.3,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon3.jpg"
+                img: "../IMG/nailSalon3.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
             }
         ]
     };

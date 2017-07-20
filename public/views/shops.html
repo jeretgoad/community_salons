@@ -8,10 +8,18 @@
     <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li> 
     <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
 </div>
-<div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons">
+<div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons | orderBy: 'distance':reverse">
     <div class="fl-left">
         <div>
-            <h2 id="h2"><a ng-click = "chosen(salon)"><u>{{salon.name}}</u></a></h2>
+            <h2 id="h2">
+                <a href = "{{salon.link}}" target ="_blank">
+                    <div class = "butt"></div>
+                </a>
+                {{salon.name}}
+                <div class = "miles">
+                    {{salon.distance}} miles
+                </div>
+            </h2>
             <div>
                 <div class="list-item">
                     <div class = "info">Address: 

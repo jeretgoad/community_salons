@@ -28,6 +28,43 @@
     background-color:antiquewhite;
 }
 
+.homeShops {
+    display:inline-flex;
+    font-size: 24px;
+    color:burlywood;
+    width: 50%;
+    padding-left: 10px;
+    margin-left: 5px;
+    text-align:left;
+}
+
+.homeShops a {
+    color:burlywood;
+    font-style: oblique;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.homeShops a:hover {
+    color: purple;
+}
+
+.butt {
+   background:url("../IMG/favicon.jpg");
+    width:17.1px;
+    height:17.2px;
+    margin-top: 4;
+    margin-right: 15px;
+    background-color:aqua;
+}
+
+.butt a:hover {
+    cursor:pointer;
+    text-decoration: underline;
+    background-color: blue;
+    color:white;
+}
+
 .us {
     color:red;
     font-size:24px;
@@ -44,27 +81,20 @@
 
 .nearest {
     font-style:normal;
-    color: red;
     padding:2%;
     font-size: 20px;
 }
 
-.nearest a:hover{
-    cursor:pointer;
-}
 
 .miles {
     color: black;
     font-size: 17px;
-    margin-left: 8%;
 }
 
 .nearest .miles{
     display: inline-block;
 }
-.nearest a:hover{
-    background-color: purple;
-}
+
 .dropbtn {
     background-color: black;
     color: white;
@@ -92,6 +122,7 @@
     width: 60%;
     height: 65%;
 }
+
 
 img{
     float:left;
@@ -235,15 +266,30 @@ img{
     color:burlywood;
 }
 
-.title .slogan{
+.title .slogan {
     display: block;
 }
-#h2{
+
+
+#h2 {
     margin-left: 8;
-    color:burlywood;
+    display: inline-flex;
+    color: burlywood;
 }
 
-#h3{
+#h2 .butt {
+    width:17.1px;
+    height:17.4px;
+    margin-top: 4;
+    margin-right: 15px;
+    background-color:aqua;
+}
+
+#h2 .miles {
+    margin-left: 30;
+    margin-top: 5;
+}
+#h3 {
     margin-top: 30;
     text-align: center;
 }
