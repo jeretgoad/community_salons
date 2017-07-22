@@ -262,6 +262,7 @@
     
     var homeController = function($scope, stylesModelD, barbersModelD, nailsModelD, chosenModelD, $location)
     {
+		$scope.distance = getLocation();
         $scope.nearStyles = stylesModelD;
         $scope.nearNails = nailsModelD;
         $scope.nearBarbers = barbersModelD;
@@ -381,6 +382,20 @@
         $scope.workers = usModelD;
     }
     
+	//get user geolocation and return it
+	var latitude, longitude = 0;
+	var getLocation = function($scope) {
+		if (window.navigator.geoLocation) {
+			console.log("test");
+			navigator.geoLocation.getCurrentPosition(function (position) {
+				lat = position.coords.latitude;
+				longitude = position.coords.longitude;
+				return "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude + "miles";
+			});
+		} else {
+			return "Geolocation is not supported by this browser.";
+		}
+	}
 
     var routingConfig = function($routeProvider)
     {

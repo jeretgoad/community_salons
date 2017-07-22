@@ -33,27 +33,4 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-    
     </script>
-
-
-	<!--handle geolocation here-->
-	<script>
-		window.onload = function() {
-
-			var x = document.getElementById("distance");
-			function getLocation() {
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(showPosition);
-				} else {
-					x.innerHTML = "Geolocation is not supported by this browser.";
-				}
-			}
-			function showPosition(position) {
-				x.innerHTML = "Latitude: " + position.coords.latitude + 
-				"<br>Longitude: " + position.coords.longitude; 
-			}
-			getLocation();
-            
-		}
-	</script>
