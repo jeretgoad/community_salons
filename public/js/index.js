@@ -383,14 +383,14 @@
     }
     
 	//get user geolocation and return it
-	var latitude, longitude = 0;
 	var getLocation = function($scope) {
-		if (window.navigator.geoLocation) {
-			console.log("test");
-			navigator.geoLocation.getCurrentPosition(function (position) {
+    	var latitude, longitude = 0;
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
 				lat = position.coords.latitude;
 				longitude = position.coords.longitude;
-				return "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude + "miles";
+				console.log(lat + " " + longitude);
+				return "Latitude: " + lat + "<br>Longitude: " + longitude;
 			});
 		} else {
 			return "Geolocation is not supported by this browser.";
@@ -449,4 +449,5 @@
     .service("barbersModelD", barbersModel)
     .service("nailsModelD", nailsModel)
     .service("chosenModelD", chosenModel)
+	.service('getlocation', getLocation)
 })();
