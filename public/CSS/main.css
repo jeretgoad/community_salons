@@ -130,6 +130,7 @@ img{
     height: 100%;
 	min-width: 60px;
 	min-height: 60px;
+    position: relative;
 }
 .dropdown-content {
     display: none;
@@ -144,7 +145,12 @@ img{
     display: inline-block;
 }
 
-
+.info2{
+    width: 45%;
+    margin-left: 5%;
+    display: inline-block;
+    position: relative;
+}
 .infoUs{
     font-size: 20px;
     width: 28%;
@@ -314,18 +320,51 @@ img{
     padding-bottom: 10px
 }
 
+#left-holder{
+    height:100%;
+    width: 15%;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+#right-holder {
+    height:100%;
+    width: 15%;
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+
+
+.leftArrow {
+    left: 0px;
+}
+
+.rightArrow {
+    right: 0px;
+}
+
+#left-holder img, #right-holder img {
+    height:50px;
+    width: 50px;
+    position: absolute;
+    top: 40%;
+}
+
 .fl-left{
     width: 80%;
     float: left;
+    padding-top: 2%;
 }
 
 .fl-left > div:first-child{
-    width: 98%;
-    height: 300px;
+    width: 100%;
+    height: 330px;
 	position: relative;
 	margin: auto;
-	max-width: 800px;
-	min-width: 650px;
+	max-width: 90%;
+	min-width: 65%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
@@ -345,15 +384,15 @@ img{
 .fl-left2{
     width: 85%;
     float: left;
-	max-width: 1200px;
-	min-width: 950px;
+	max-width: 120%;
+	min-width: 95%;
 	margin: auto;
 	padding: 20px;
 }
 
 .fl-left2 > div:first-child{
     width: 98%;
-    height: 420px;
+    height: 460px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
@@ -363,7 +402,7 @@ img{
 }
 
 .fl-left2 > div:first-child > div{
-    height: 450px;
+    height: 100%;
     border-top-style: solid;
     border-top-width: 1px;
     border-top-color: lightgray;

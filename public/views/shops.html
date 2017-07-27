@@ -23,11 +23,32 @@
             <div>
                 <div class="list-item">
                     <div class = "info">Address: 
-                        {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br><div class = "image"><img src = "{{salon.ownImg}}" /></div></div>
-                    <div class = "info">Schedule: <br> {{salon.Monday}} <br> {{salon.Tuesday}}<br> {{salon.Wednesday}} <br> {{salon.Thursday}}<br> {{salon.Friday}} <br> {{salon.Saturday}}
-                    <br> {{salon.Sunday}} <br><br> phone: {{salon.phone}}</div> 
+                        {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br>
+                        <div class = "image">
+                            <img src = "{{salon.ownImg}}" />
+                        </div>
+                    </div>
+                    <div class = "info">
+                        Schedule: <br> {{salon.Monday}} <br> {{salon.Tuesday}}<br> {{salon.Wednesday}} <br> {{salon.Thursday}}<br> {{salon.Friday}} <br> {{salon.Saturday}}
+                        <br> {{salon.Sunday}} <br><br> phone: {{salon.phone}}
+                    </div> 
                 </div>
-                <div class = "info"><img src = "{{salon.img}}" /></div>
+                <div class = "info2">
+                    <img src = "{{salon.img[0]}}">
+                        <span ng-if = "salon.img.length > 1">
+                            <div id = "left-holder">
+                                <span ng-if = "index > 0">
+                                    <img class = "leftArrow" src = "../IMG/arrow_left.png" />
+                                </span>
+                            </div>
+                            <div id = "right-holder">
+                                <span ng-if = "salon.img.length > (index+1)">
+                                    <img class = "rightArrow" src = "../IMG/arrow_right.png" />
+                                </span>
+                            </div>
+                        </span>
+                    </img>
+                </div>
             </div>
         </div>
     </div>

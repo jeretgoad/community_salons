@@ -44,7 +44,11 @@
                 Sunday: "Sun. Closed",
                 distance: 2.4,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon1.jpg",
+                img: [
+                        "../IMG/styleSalon1.jpg",
+                        "../IMG/styleSalon1-2.jpg"
+                ],
+                
                 ifLink: true,
                 link: "https://www.facebook.com/jeret.goad/"
             },
@@ -67,7 +71,9 @@
                 Sunday: "Sun. 1-5",
                 distance: 6.6,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon2.jpg",
+                img: [
+                        "../IMG/styleSalon2.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             },
             {
@@ -89,7 +95,10 @@
                 Sunday: "Sun. 9-5",
                 distance: 12,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/styleSalon3.jpg",
+                img: [
+                        "../IMG/styleSalon3.jpg",
+                        "../IMG/styleSalon1-2.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             }
             
@@ -118,7 +127,9 @@
                 Sunday: "Sun. Closed",
                 distance: 10,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon1.jpg",
+                img: [
+                        "../IMG/barberSalon1.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             },
             {
@@ -140,7 +151,9 @@
                 Sunday: "Sun. Closed",
                 distance: 0.01,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon2.jpg",
+                img: [
+                        "../IMG/barberSalon2.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             },
             {
@@ -162,7 +175,9 @@
                 Sunday: "Sun. Closed",
                 distance: 0.2,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/barberSalon3.jpg",
+                img: [
+                        "../IMG/barberSalon3.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             }
             ]
@@ -190,7 +205,9 @@
                 Sunday: "Sun. Closed",
                 distance: 3,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon1.jpg",
+                img: [
+                        "../IMG/nailSalon1.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             },
             {
@@ -212,7 +229,9 @@
                 Sunday: "Sun. Closed",
                 distance: 5.4,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon2.jpg",
+                img: [
+                        "../IMG/nailSalon2.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             },
             {
@@ -234,153 +253,70 @@
                 Sunday: "Sun. Closed",
                 distance: 0.3,
                 ownImg: "../IMG/owner.jpeg",
-                img: "../IMG/nailSalon3.jpg",
+                img: [
+                        "../IMG/nailSalon3.jpg"
+                ],
                 link: "https://www.facebook.com/jeret.goad/"
             }
         ]
     };
     
-    var chosenModel = function()
-    {
-        return{
-            name: "",
-            address: "",
-            city: "",
-            state: "",
-            phone: "",
-            owner: "",
-            Monday: "",
-            Tuesday:"",
-            Wednesday:"",
-            Thursday: "",
-            Friday: "",
-            Saturday: "",
-            Sunday: "",
-            img: ""
-        }
-    };
     
-    var homeController = function($scope, stylesModelD, barbersModelD, nailsModelD, chosenModelD, $location)
+    var homeController = function($scope, stylesModelD, barbersModelD, nailsModelD, $location)
     {
 		$scope.distance = getLocation();
         $scope.nearStyles = stylesModelD;
         $scope.nearNails = nailsModelD;
         $scope.nearBarbers = barbersModelD;
-        
-        $scope.chosen = function(salon)
-        {
-            chosenModelD.name = salon.name;
-            chosenModelD.address = salon.address;
-            chosenModelD.city = salon.city;
-            chosenModelD.state = salon.state;
-            chosenModelD.phone = salon.phone;
-            chosenModelD.owner = salon.owner;
-            chosenModelD.Monday = salon.Monday;
-            chosenModelD.Tuesday = salon.Tuesday;
-            chosenModelD.Wednesday = salon.Wednesday;
-            chosenModelD.Thursday = salon.Thursday;
-            chosenModelD.Friday = salon.Friday;
-            chosenModelD.Saturday = salon.Saturday;
-            chosenModelD.Sunday = salon.Sunday;
-            chosenModelD.img = salon.img;
-            $location.path("/shop");
-        }
     }
     
-    var stylesController = function($scope, stylesModelD, chosenModelD, $location)
+    var stylesController = function($scope, stylesModelD, $location)
     {
         $scope.salons = stylesModelD;
-        $scope.chosen = function(salon)
+        $scope.index = 0;
+        $scope.next = function()
         {
-            chosenModelD.name = salon.name;
-            chosenModelD.address = salon.address;
-            chosenModelD.city = salon.city;
-            chosenModelD.state = salon.state;
-            chosenModelD.phone = salon.phone;
-            chosenModelD.owner = salon.owner;
-            chosenModelD.Monday = salon.Monday;
-            chosenModelD.Tuesday = salon.Tuesday;
-            chosenModelD.Wednesday = salon.Wednesday;
-            chosenModelD.Thursday = salon.Thursday;
-            chosenModelD.Friday = salon.Friday;
-            chosenModelD.Saturday = salon.Saturday;
-            chosenModelD.Sunday = salon.Sunday;
-            chosenModelD.img = salon.img;
-            $location.path("/shop");
-        }
+          $scope.index += 1;  
+        };
+        $scope.prev = function()
+        {
+          $scope.index -= 1;  
+        };
     }
     
-    var barbersController = function($scope, barbersModelD, chosenModelD, $location)
+    var barbersController = function($scope, barbersModelD, $location)
     {
         $scope.salons = barbersModelD;
-        $scope.chosen = function(salon)
+        $scope.index = 0;
+        $scope.next = function()
         {
-            chosenModelD.name = salon.name;
-            chosenModelD.address = salon.address;
-            chosenModelD.city = salon.city;
-            chosenModelD.state = salon.state;
-            chosenModelD.phone = salon.phone;
-            chosenModelD.owner = salon.owner;
-            chosenModelD.Monday = salon.Monday;
-            chosenModelD.Tuesday = salon.Tuesday;
-            chosenModelD.Wednesday = salon.Wednesday;
-            chosenModelD.Thursday = salon.Thursday;
-            chosenModelD.Friday = salon.Friday;
-            chosenModelD.Saturday = salon.Saturday;
-            chosenModelD.Sunday = salon.Sunday;
-            chosenModelD.img = salon.img;
-            $location.path("/shop");
-        }
+          $scope.index += 1;  
+        };
+        $scope.prev = function()
+        {
+          $scope.index -= 1;  
+        };
     }
     
-    var nailsController = function($scope, nailsModelD, chosenModelD, $location)
+    var nailsController = function($scope, nailsModelD, $location)
     {
         $scope.salons = nailsModelD;
-        $scope.chosen = function(salon)
+        $scope.index = 0;
+        $scope.next = function()
         {
-            chosenModelD.name = salon.name;
-            chosenModelD.address = salon.address;
-            chosenModelD.city = salon.city;
-            chosenModelD.state = salon.state;
-            chosenModelD.phone = salon.phone;
-            chosenModelD.owner = salon.owner;
-            chosenModelD.Monday = salon.Monday;
-            chosenModelD.Tuesday = salon.Tuesday;
-            chosenModelD.Wednesday = salon.Wednesday;
-            chosenModelD.Thursday = salon.Thursday;
-            chosenModelD.Friday = salon.Friday;
-            chosenModelD.Saturday = salon.Saturday;
-            chosenModelD.Sunday = salon.Sunday;
-            chosenModelD.img = salon.img;
-            $location.path("/shop");
-        }
-    }
-    
-    var shopController = function($scope, chosenModelD, $location)
-    {
-        $scope.shop = chosenModelD;
-        $scope.reset = function()
+          $scope.index += 1;  
+        };
+        $scope.prev = function()
         {
-            chosenModelD.name = "";
-            chosenModelD.address = "";
-            chosenModelD.city = "";
-            chosenModelD.state = "";
-            chosenModelD.phone = "";
-            chosenModelD.owner = "";
-            chosenModelD.Monday= "";
-            chosenModelD.Tuesday = "";
-            chosenModelD.Wednesday = "";
-            chosenModelD.Thursday = "";
-            chosenModelD.Friday = "";
-            chosenModelD.Saturday = "";
-            chosenModelD.Sunday = "";
-        }
+          $scope.index -= 1;  
+        };
     }
     
     var usController = function($scope, usModelD, $location)
     {
         $scope.workers = usModelD;
     }
+    
     
 	//get user geolocation and return it
 	var getLocation = function($scope) {
@@ -396,6 +332,7 @@
 			return "Geolocation is not supported by this browser.";
 		}
 	}
+    
 
     var routingConfig = function($routeProvider)
     {
@@ -420,12 +357,6 @@
                 templateUrl:"../views/shops.html",
                 controller:"nailsController"
         })
-        .when("/shop",
-              {
-                templateUrl:"../views/shop.html",
-                controller:"shopController"
-        })
-       
         .when("/us",
              {
                 templateUrl:"../views/us.html",
@@ -441,13 +372,11 @@
     .controller("stylesController", stylesController)
     .controller("barbersController", barbersController)
     .controller("nailsController", nailsController)
-    .controller("shopController", shopController)
     .controller("usController", usController)
     .config(['$routeProvider', routingConfig])
     .service("usModelD", usModel)
     .service("stylesModelD", stylesModel)
     .service("barbersModelD", barbersModel)
     .service("nailsModelD", nailsModel)
-    .service("chosenModelD", chosenModel)
 	.service('getlocation', getLocation)
 })();
