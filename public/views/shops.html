@@ -25,7 +25,7 @@
                     <div class = "info">Address: 
                         {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br>
                         <div class = "image">
-                            <img src = "{{salon.ownImg}}" />
+                            <img ng-src = "{{salon.ownImg}}" />
                         </div>
                     </div>
                     <div class = "info">
@@ -34,16 +34,20 @@
                     </div> 
                 </div>
                 <div class = "info2">
-                    <img src = "{{salon.img[0]}}">
+                    <img ng-src = "{{salon.img[salon.index]}}">
                         <span ng-if = "salon.img.length > 1">
                             <div id = "left-holder">
-                                <span ng-if = "index > 0">
-                                    <img class = "leftArrow" src = "../IMG/arrow_left.png" />
+                                <span ng-if = "salon.index > 0">
+                                    <a ng-click = "prev(salon)">
+                                        <img class = "leftArrow" src = "../IMG/arrow_left.png" />
+                                    </a>
                                 </span>
                             </div>
                             <div id = "right-holder">
-                                <span ng-if = "salon.img.length > (index+1)">
-                                    <img class = "rightArrow" src = "../IMG/arrow_right.png" />
+                                <span ng-if = "salon.img.length > (salon.index+1)">
+                                    <a ng-click = "next(salon)">
+                                        <img class = "rightArrow" src = "../IMG/arrow_right.png" />
+                                    </a>
                                 </span>
                             </div>
                         </span>

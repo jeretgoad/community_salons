@@ -43,10 +43,12 @@
                 Saturday: "Sat. 12-5",
                 Sunday: "Sun. Closed",
                 distance: 2.4,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/styleSalon1.jpg",
-                        "../IMG/styleSalon1-2.jpg"
+                        "../IMG/styleSalon1-2.jpg",
+                        "../IMG/styleSalon2.jpg"
                 ],
                 
                 ifLink: true,
@@ -70,6 +72,7 @@
                 Saturday: "Sat. 8-5",
                 Sunday: "Sun. 1-5",
                 distance: 6.6,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/styleSalon2.jpg"
@@ -94,6 +97,7 @@
                 Saturday: "Sat. 9-5",
                 Sunday: "Sun. 9-5",
                 distance: 12,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/styleSalon3.jpg",
@@ -126,6 +130,7 @@
                 Saturday: "Sat. 8-12",
                 Sunday: "Sun. Closed",
                 distance: 10,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/barberSalon1.jpg"
@@ -150,6 +155,7 @@
                 Saturday: "Sat. 8-12",
                 Sunday: "Sun. Closed",
                 distance: 0.01,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/barberSalon2.jpg"
@@ -174,6 +180,7 @@
                 Saturday: "Sat. 10-3",
                 Sunday: "Sun. Closed",
                 distance: 0.2,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/barberSalon3.jpg"
@@ -204,6 +211,7 @@
                 Saturday: "Sat. 12-4",
                 Sunday: "Sun. Closed",
                 distance: 3,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/nailSalon1.jpg"
@@ -228,6 +236,7 @@
                 Saturday: "Sat. Closed",
                 Sunday: "Sun. Closed",
                 distance: 5.4,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/nailSalon2.jpg"
@@ -252,6 +261,7 @@
                 Saturday: "Sat. 10-5",
                 Sunday: "Sun. Closed",
                 distance: 0.3,
+                index: 0,
                 ownImg: "../IMG/owner.jpeg",
                 img: [
                         "../IMG/nailSalon3.jpg"
@@ -273,14 +283,13 @@
     var stylesController = function($scope, stylesModelD, $location)
     {
         $scope.salons = stylesModelD;
-        $scope.index = 0;
-        $scope.next = function()
+        $scope.next = function(gallery)
         {
-          $scope.index += 1;  
+          gallery.index += 1;  
         };
-        $scope.prev = function()
+        $scope.prev = function(gallery)
         {
-          $scope.index -= 1;  
+          gallery.index -= 1;  
         };
     }
     
