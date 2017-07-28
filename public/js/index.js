@@ -296,26 +296,24 @@
     var barbersController = function($scope, barbersModelD, $location)
     {
         $scope.salons = barbersModelD;
-        $scope.index = 0;
-        $scope.next = function()
+        $scope.next = function(gallery)
         {
-          $scope.index += 1;  
+          gallery.index += 1;  
         };
-        $scope.prev = function()
+        $scope.prev = function(gallery)
         {
-          $scope.index -= 1;  
+          gallery.index -= 1;  
         };
     }
     
     var nailsController = function($scope, nailsModelD, $location)
     {
         $scope.salons = nailsModelD;
-        $scope.index = 0;
-        $scope.next = function()
+        $scope.next = function(gallery)
         {
-          $scope.index += 1;  
+          gallery.index += 1;  
         };
-        $scope.prev = function()
+        gallery.prev = function(gallery)
         {
           $scope.index -= 1;  
         };
