@@ -2,6 +2,15 @@
 {
     angular.module("salons",['ngRoute']);
     
+    var clientCoords = function()
+    {
+        return {
+            lat: 0,
+            long: 0
+        }
+    };
+    
+   
     var usModel = function()
     {
       return [
@@ -272,9 +281,9 @@
     };
     
     
-    var homeController = function($scope, stylesModelD, barbersModelD, nailsModelD, $location)
+    var homeController = function($scope, clientCoords, stylesModelD, barbersModelD, nailsModelD, $location)
     {
-		$scope.distance = getLocation();
+        getLocation();
         $scope.nearStyles = stylesModelD;
         $scope.nearNails = nailsModelD;
         $scope.nearBarbers = barbersModelD;
@@ -283,10 +292,12 @@
     var stylesController = function($scope, stylesModelD, $location)
     {
         $scope.salons = stylesModelD;
+        
         $scope.next = function(gallery)
         {
           gallery.index += 1;  
         };
+        
         $scope.prev = function(gallery)
         {
           gallery.index -= 1;  
@@ -324,23 +335,35 @@
         $scope.workers = usModelD;
     }
     
-    
-	//get user geolocation and return it
+    //get user geolocation and return it
 	var getLocation = function($scope) {
     	var latitude, longitude = 0;
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				lat = position.coords.latitude;
+				latitude = position.coords.latitude;
 				longitude = position.coords.longitude;
-				console.log(lat + " " + longitude);
-				return "Latitude: " + lat + "<br>Longitude: " + longitude;
+				getCoords(latitude, longitude);
 			});
 		} else {
-			return "Geolocation is not supported by this browser.";
+			getError(err);
 		}
-	}
+	};
     
-
+    
+    
+    var getCoords = function(lat, long) {
+        var clientLat = lat;
+        var clientLong = long;
+        var miles = 0.0;
+        for(var i = 0; i < stylesModel.length; i++)
+            {
+                var salLat = stylesModel[i].latitude;
+                var salLong = stylesModel[i].longitude;
+            }
+        
+    };
+	
+    
     var routingConfig = function($routeProvider)
     {
         $routeProvider
@@ -381,9 +404,9 @@
     .controller("nailsController", nailsController)
     .controller("usController", usController)
     .config(['$routeProvider', routingConfig])
+    .service("clientCoords", clientCoords)
     .service("usModelD", usModel)
     .service("stylesModelD", stylesModel)
     .service("barbersModelD", barbersModel)
     .service("nailsModelD", nailsModel)
-	.service('getlocation', getLocation)
 })();
