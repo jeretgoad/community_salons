@@ -2,14 +2,6 @@
 {
     angular.module("salons",['ngRoute']);
     
-    var clientCoords = function()
-    {
-        return {
-            lat: 0,
-            long: 0
-        }
-    };
-    
    
     var usModel = function()
     {
@@ -31,11 +23,17 @@
       ]  
     };
     
-     var stylesModel = function()
+    
+    var putnam_county_BBNSS = function()
     {
         return [
             {
                 name: "Slick Spot",
+                barber: false,
+                beauty: true,
+                nail: false,
+                spa: false,
+                style: true,
                 address: "1800 W",
                 city: "Cookeville",
                 state: "TN",
@@ -65,6 +63,11 @@
             },
             {
                 name: "Style Cutz",
+                barber: true,
+                beauty: true,
+                nail: false,
+                spa: true,
+                style: true,
                 address: "540 E",
                 city: "Cookeville",
                 state: "TN",
@@ -90,6 +93,11 @@
             },
             {
                 name: "Beaut Cutz",
+                barber: true,
+                beauty: true,
+                nail: false,
+                spa: false,
+                style: false,
                 address: "888 N",
                 city: "Cookeville",
                 state: "TN",
@@ -113,16 +121,14 @@
                         "../IMG/styleSalon1-2.jpg"
                 ],
                 link: "https://www.facebook.com/jeret.goad/"
-            }
-            
-        ]
-    };
-    
-    var barbersModel = function()
-    {
-        return [
+            },
             {
                 name: "Randy's Hotspot",
+                barber: true,
+                beauty: false,
+                nail: true,
+                spa: false,
+                style: false,
                 address: "44 S",
                 city: "Cookeville",
                 state: "TN",
@@ -148,6 +154,11 @@
             },
             {
                 name: "Barber 101",
+                barber: true,
+                beauty: false,
+                nail: false,
+                spa: false,
+                style: false,
                 address: "Davidson St",
                 city: "Cookeville",
                 state: "TN",
@@ -173,6 +184,11 @@
             },
             {
                 name: "Buzz",
+                barber: true,
+                beauty: false,
+                nail: false,
+                spa: false,
+                style: false,
                 address: "Broadway S",
                 city: "Cookeville",
                 state: "TN",
@@ -195,15 +211,14 @@
                         "../IMG/barberSalon3.jpg"
                 ],
                 link: "https://www.facebook.com/jeret.goad/"
-            }
-            ]
-    };
-    
-    var nailsModel = function()
-    {
-        return[
+            },
             {
                 name: "Sally's Spot",
+                barber: false,
+                beauty: false,
+                nail: true,
+                spa: false,
+                style: true,
                 address: "Bake St",
                 city: "Cookeville",
                 state: "TN",
@@ -229,6 +244,11 @@
             },
             {
                 name: "We Did Em",
+                barber: false,
+                beauty: false,
+                nail: true,
+                spa: false,
+                style: false,
                 address: "Broadway S",
                 city: "Cookeville",
                 state: "TN",
@@ -254,6 +274,11 @@
             },
             {
                 name: "County Nails",
+                barber: false,
+                beauty: true,
+                nail: true,
+                spa: false,
+                style: false,
                 address: "Broadway S",
                 city: "Cookeville",
                 state: "TN",
@@ -277,63 +302,176 @@
                 ],
                 link: "https://www.facebook.com/jeret.goad/"
             }
+            
         ]
     };
     
     
-    var homeController = function($scope, clientCoords, stylesModelD, barbersModelD, nailsModelD, $location)
+    var shops_filter_model = function(putnam_county_BBNSS)
+    {
+        var barbers = [];
+        var beauties = [];
+        var nails = [];
+        var spas = [];
+        var styles = [];
+         for(var i = 0; i < putnam_county_BBNSS.length; i++)
+            {
+                var current = putnam_county_BBNSS[i];
+                
+                if(current.barber === true)
+                    {
+                        barbers.push(current);
+                        console.log("barbers: " + barbers.length);
+                    }
+                
+                if(current.beauty === true)
+                    {
+                        beauties.push(current);
+                        console.log("beauties: " + beauties.length);
+                    }
+                
+                if(current.nail === true)
+                    {
+                        nails.push(current);
+                        console.log("nails: " + nails.length);
+                    }
+                
+                if(current.spa === true)
+                    {
+                        spas.push(current);
+                        console.log("spas: " + spas.length);
+                    }
+                
+                if(current.style === true)
+                    {
+                        styles.push(current);
+                        console.log("styles: " + styles.length);
+                    }
+            }
+        return {
+                barbers: barbers,
+                beauties: beauties,
+                nails: nails,
+                spas: spas,
+                styles: styles
+            }
+    };
+    
+    var homeController = function($scope, shops_filter_model, $location)
     {
         getLocation();
-        $scope.nearStyles = stylesModelD;
-        $scope.nearNails = nailsModelD;
-        $scope.nearBarbers = barbersModelD;
+        $scope.nearBarbers = shops_filter_model.barbers;
+        $scope.nearBeauties = shops_filter_model.beauties;
+        $scope.nearNails = shops_filter_model.nails;
+        $scope.nearSpas = shops_filter_model.spas;
+        $scope.nearStyles = shops_filter_model.styles;
+        
     }
-    
-    var stylesController = function($scope, stylesModelD, $location)
+    var barbersController = function($scope, shops_filter_model, $location)
     {
-        $scope.salons = stylesModelD;
-        
-        $scope.next = function(gallery)
-        {
-          gallery.index += 1;  
-        };
-        
+        $scope.salons = shops_filter_model.barbers;
+        setGalleryIndex($scope.salons);
+        //set gallery index to previous
         $scope.prev = function(gallery)
         {
-          gallery.index -= 1;  
+            gallery.index -= 1;  
         };
-    }
     
-    var barbersController = function($scope, barbersModelD, $location)
-    {
-        $scope.salons = barbersModelD;
+        //set gallery index to next
         $scope.next = function(gallery)
         {
-          gallery.index += 1;  
+            gallery.index += 1;  
         };
+        
+    }
+    
+    var beautiesController = function($scope, shops_filter_model, $location)
+    {
+        $scope.salons = shops_filter_model.beauties;
+        setGalleryIndex($scope.salons);
+        //set gallery index to previous
         $scope.prev = function(gallery)
         {
-          gallery.index -= 1;  
+            gallery.index -= 1;  
+        };
+    
+        //set gallery index to next
+        $scope.next = function(gallery)
+        {
+            gallery.index += 1;  
+        };
+        
+    }
+    
+    var nailsController = function($scope, shops_filter_model, $location)
+    {
+        $scope.salons = shops_filter_model.nails;
+        setGalleryIndex($scope.salons);
+        //set gallery index to previous
+        $scope.prev = function(gallery)
+        {
+            gallery.index -= 1;  
+        };
+    
+        //set gallery index to next
+        $scope.next = function(gallery)
+        {
+            gallery.index += 1;  
+        };
+        
+    }
+    
+    var spasController = function($scope, shops_filter_model, $location)
+    {
+        $scope.salons = shops_filter_model.spas;
+        setGalleryIndex($scope.salons);
+        //set gallery index to previous
+        $scope.prev = function(gallery)
+        {
+            gallery.index -= 1;  
+        };
+    
+        //set gallery index to next
+        $scope.next = function(gallery)
+        {
+            gallery.index += 1;  
+        };
+        
+    }
+    
+    var stylesController = function($scope, shops_filter_model, $location)
+    {
+        $scope.salons = shops_filter_model.styles;  
+        setGalleryIndex($scope.salons);
+        //set gallery index to previous
+        $scope.prev = function(gallery)
+        {
+            gallery.index -= 1;  
+        };
+    
+        //set gallery index to next
+        $scope.next = function(gallery)
+        {
+            gallery.index += 1;  
         };
     }
     
-    var nailsController = function($scope, nailsModelD, $location)
-    {
-        $scope.salons = nailsModelD;
-        $scope.next = function(gallery)
-        {
-          gallery.index += 1;  
-        };
-        gallery.prev = function(gallery)
-        {
-          $scope.index -= 1;  
-        };
-    }
     
     var usController = function($scope, usModelD, $location)
     {
         $scope.workers = usModelD;
     }
+    
+    
+    //set index to 0 for gallery show
+    var setGalleryIndex = function(shops)
+    {
+        for(var i = 0; i < shops.length; i++)
+            {
+                shops[i].index = 0;
+            }
+    };
+    
     
     //get user geolocation and return it
 	var getLocation = function($scope) {
@@ -355,10 +493,10 @@
         var clientLat = lat;
         var clientLong = long;
         var miles = 0.0;
-        for(var i = 0; i < stylesModel.length; i++)
+        for(var i = 0; i < putnam_county_BBNSS.length; i++)
             {
-                var salLat = stylesModel[i].latitude;
-                var salLong = stylesModel[i].longitude;
+                var salLat = putnam_county_BBNSS[i].latitude;
+                var salLong = putnam_county_BBNSS[i].longitude;
             }
         
     };
@@ -372,21 +510,31 @@
                 templateUrl:"../views/home.html",
                 controller: "homeController"
             })
-        .when("/styles", 
-              {
-                templateUrl:"../views/shops.html",
-                controller: "stylesController"
-            })
         .when("/barbers",
               {
                 templateUrl:"../views/shops.html",
                 controller: "barbersController"
+            })
+        .when("/beauties",
+              {
+                templateUrl:"../views/shops.html",
+                controller: "beautiesController"
             })
         .when("/nails",
               {
                 templateUrl:"../views/shops.html",
                 controller:"nailsController"
         })
+        .when("/spas", 
+              {
+                templateUrl:"../views/shops.html",
+                controller: "spasController"
+            })
+        .when("/styles", 
+              {
+                templateUrl:"../views/shops.html",
+                controller: "stylesController"
+            })
         .when("/us",
              {
                 templateUrl:"../views/us.html",
@@ -399,14 +547,14 @@
     angular
     .module("salons")
     .controller("homeController", homeController)
-    .controller("stylesController", stylesController)
     .controller("barbersController", barbersController)
+    .controller("beautiesController", beautiesController)
     .controller("nailsController", nailsController)
+    .controller("spasController", spasController)
+    .controller("stylesController", stylesController)
     .controller("usController", usController)
     .config(['$routeProvider', routingConfig])
-    .service("clientCoords", clientCoords)
     .service("usModelD", usModel)
-    .service("stylesModelD", stylesModel)
-    .service("barbersModelD", barbersModel)
-    .service("nailsModelD", nailsModel)
+    .service("putnam_county_BBNSS", putnam_county_BBNSS)
+    .service("shops_filter_model", shops_filter_model)
 })();

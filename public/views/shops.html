@@ -3,9 +3,11 @@
 </div>
 <div class="navbar">
     <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
-    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
     <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
-    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li> 
+    <li><a href = "#!/beauties" class="navbtn" id="beauties">Beauty Salons</a></li>
+    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Salons</a></li>
+    <li><a href = "#!/spas" class="navbtn" id="spas">Day Spas</a></li>
+    <li><a href = "#!/styles" class="navbtn" id="styles">Style Salons</a></li>
     <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
 </div>
 <div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons | orderBy: 'distance':reverse">
@@ -22,15 +24,54 @@
             </h2>
             <div>
                 <div class="list-item">
-                    <div class = "info">Address: 
-                        {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br>
+                    <div class = "info">
+                        <div class = "shopTag">
+                            Address:
+                        </div>
+                        <div class = "discr">
+                            {{salon.address}}, {{salon.city}}, 
+                            {{salon.state}}, 
+                            {{salon.zip}}
+                        </div>  
+                        <br>
+                        <div class = "shopTag">
+                            Owner:
+                        </div>
+                        <div class = "discr">
+                            {{salon.owner}}
+                        </div>
+                        <br>
                         <div class = "image">
                             <img ng-src = "{{salon.ownImg}}" />
                         </div>
                     </div>
                     <div class = "info">
-                        Schedule: <br> {{salon.Monday}} <br> {{salon.Tuesday}}<br> {{salon.Wednesday}} <br> {{salon.Thursday}}<br> {{salon.Friday}} <br> {{salon.Saturday}}
-                        <br> {{salon.Sunday}} <br><br> phone: {{salon.phone}}
+                        <div class = "shopTag">
+                            Schedule:
+                        </div>
+                        <div class = "discr">
+                            <br> 
+                            {{salon.Monday}} 
+                            <br> 
+                            {{salon.Tuesday}}
+                            <br> 
+                            {{salon.Wednesday}} 
+                            <br> 
+                            {{salon.Thursday}}
+                            <br> 
+                            {{salon.Friday}} 
+                            <br> 
+                            {{salon.Saturday}}
+                            <br> 
+                            {{salon.Sunday}} 
+                            <br><br>
+                        </div>
+                         <div class = "shopTag">
+                             phone:
+                        </div> 
+                        <div class = "discr">
+                            {{salon.phone}}
+                        </div>
                     </div> 
                 </div>
                 <div class = "info2">
