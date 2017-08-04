@@ -1,14 +1,51 @@
+<div class = "shopTable">
 <div class = "topbar">
-    <div class = "title">Community Salons</div>
+    <div class = "title"><b>Community Salons</b>
+        <div class = slogan>
+            <b>"It's more then hair!"</b>
+        </div>
+    </div>
+</div>
+<div class = "slidePannel">
+    <div class = "slideView">
+        <div class = "prev_ad"></div>
+        <div class = "curr_ad"></div>
+        <div class = "next_ad"></div>
+        <a class = "see_prev_ad" ng-click = "prevAd()">
+            <img class = "arrow_prev" src = "../IMG/arrow_left.png" />
+        </a>
+        <a class = "see_next_ad" ng-click = "nextAd()">
+            <img class = "arrow_next" src = "../IMG/arrow_right.png" />
+        </a>
+        <div class = "storage">
+            <img class = "ads" ng-src = "{{prev.img}}"></img>
+            <img class = "ads" ng-src = "{{curr.img}}"></img>
+            <img class = "ads" ng-src = "{{next.img}}"></img>
+        </div>
+    </div>
 </div>
 <div class="navbar">
-    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
-    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
-    <li><a href = "#!/beauties" class="navbtn" id="beauties">Beauty Salons</a></li>
-    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Salons</a></li>
-    <li><a href = "#!/spas" class="navbtn" id="spas">Day Spas</a></li>
-    <li><a href = "#!/styles" class="navbtn" id="styles">Style Salons</a></li>
-    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
+    <li><a href = "#!/" class="navbtn" id="home">
+        <div class = "tabTxt"><div id = "tabHome">Home</div></div>
+    </a></li>
+    <li><a href = "#!/barbers" class="navbtn" id="barbers">
+        <div class = "tabTxt">Barber Shops</div>
+    </a></li>
+    <li><a href = "#!/beauties" class="navbtn" id="beauties">
+        <div class = "tabTxt">Beauty Salons</div>
+    </a></li>
+    <li><a href = "#!/nails" class="navbtn" id="nails">
+        <div class = "tabTxt"><div id = "tabNail">Nail Salons</div></div>
+    </a></li>
+    <li><a href = "#!/spas" class="navbtn" id="spas">
+        <div class = "tabTxt">Day Spas</div>
+    </a></li>
+    <li><a href = "#!/styles" class="navbtn" id="styles">
+        <div class = "tabTxt">Style Salons</div>
+    </a></li>
+    <li><a href = "#!/us" class="navbtn" id="us">
+        <div class = "tabTxt">About Us</div>
+    </a></li>
 </div>
 <div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons | orderBy: 'distance':reverse">
     <div class="fl-left">
@@ -50,7 +87,6 @@
                             Schedule:
                         </div>
                         <div class = "discr">
-                            <br> 
                             {{salon.Monday}} 
                             <br> 
                             {{salon.Tuesday}}
@@ -97,4 +133,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

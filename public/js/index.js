@@ -23,6 +23,41 @@
       ]  
     };
     
+    var putnam_county_adv = function()
+    {
+        return [
+            {
+                name: "ABC Carpet Clean",
+                index: 0,
+                img: "../IMG/abc_carpet_clean.png",
+                link: "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                name: "The HandyMan Van",
+                index: 1,
+                img: "../IMG/the_handyman_van.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                name: "Seminole Stores",
+                index: 2,
+                img: "../IMG/seminole_stores.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                name: "Handy Man",
+                index: 3,
+                img: "../IMG/handy_man.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                name: "Gator Slide Farm",
+                index: 4,
+                img: "../IMG/gator_slide.jpg",
+                link: "https://www.facebook.com/jeret.goad/"
+            }
+        ]
+    };
     
     var putnam_county_BBNSS = function()
     {
@@ -321,31 +356,26 @@
                 if(current.barber === true)
                     {
                         barbers.push(current);
-                        console.log("barbers: " + barbers.length);
                     }
                 
                 if(current.beauty === true)
                     {
                         beauties.push(current);
-                        console.log("beauties: " + beauties.length);
                     }
                 
                 if(current.nail === true)
                     {
                         nails.push(current);
-                        console.log("nails: " + nails.length);
                     }
                 
                 if(current.spa === true)
                     {
                         spas.push(current);
-                        console.log("spas: " + spas.length);
                     }
                 
                 if(current.style === true)
                     {
                         styles.push(current);
-                        console.log("styles: " + styles.length);
                     }
             }
         return {
@@ -357,109 +387,298 @@
             }
     };
     
-    var homeController = function($scope, shops_filter_model, $location)
+    var homeController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
         getLocation();
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.nearBarbers = shops_filter_model.barbers;
         $scope.nearBeauties = shops_filter_model.beauties;
         $scope.nearNails = shops_filter_model.nails;
         $scope.nearSpas = shops_filter_model.spas;
         $scope.nearStyles = shops_filter_model.styles;
+        $scope.nextAd = function()
+        {
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
         
+        $scope.prevAd = function()
+        {
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
     }
-    var barbersController = function($scope, shops_filter_model, $location)
+    var barbersController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.salons = shops_filter_model.barbers;
         setGalleryIndex($scope.salons);
-        //set gallery index to previous
-        $scope.prev = function(gallery)
+        $scope.nextAd = function()
         {
-            gallery.index -= 1;  
-        };
-    
-        //set gallery index to next
-        $scope.next = function(gallery)
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
         {
-            gallery.index += 1;  
-        };
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
         
     }
     
-    var beautiesController = function($scope, shops_filter_model, $location)
+    var beautiesController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.salons = shops_filter_model.beauties;
         setGalleryIndex($scope.salons);
-        //set gallery index to previous
-        $scope.prev = function(gallery)
+        $scope.nextAd = function()
         {
-            gallery.index -= 1;  
-        };
-    
-        //set gallery index to next
-        $scope.next = function(gallery)
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
         {
-            gallery.index += 1;  
-        };
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
         
     }
     
-    var nailsController = function($scope, shops_filter_model, $location)
+    var nailsController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.salons = shops_filter_model.nails;
         setGalleryIndex($scope.salons);
-        //set gallery index to previous
-        $scope.prev = function(gallery)
+        $scope.nextAd = function()
         {
-            gallery.index -= 1;  
-        };
-    
-        //set gallery index to next
-        $scope.next = function(gallery)
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
         {
-            gallery.index += 1;  
-        };
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
         
     }
     
-    var spasController = function($scope, shops_filter_model, $location)
+    var spasController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.salons = shops_filter_model.spas;
         setGalleryIndex($scope.salons);
-        //set gallery index to previous
-        $scope.prev = function(gallery)
+        $scope.nextAd = function()
         {
-            gallery.index -= 1;  
-        };
-    
-        //set gallery index to next
-        $scope.next = function(gallery)
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
         {
-            gallery.index += 1;  
-        };
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
         
     }
     
-    var stylesController = function($scope, shops_filter_model, $location)
+    var stylesController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.salons = shops_filter_model.styles;  
         setGalleryIndex($scope.salons);
-        //set gallery index to previous
-        $scope.prev = function(gallery)
+        $scope.nextAd = function()
         {
-            gallery.index -= 1;  
-        };
-    
-        //set gallery index to next
-        $scope.next = function(gallery)
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
         {
-            gallery.index += 1;  
-        };
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
     }
     
     
-    var usController = function($scope, usModelD, $location)
+    var usController = function($scope, putnam_county_adv,  usModelD, $location)
     {
+        $scope.advertisements = putnam_county_adv;
+        var lastIndex = $scope.advertisements.length -1;
+        $scope.prev = $scope.advertisements[0];
+        $scope.curr = $scope.advertisements[1];
+        $scope.next = $scope.advertisements[2];
         $scope.workers = usModelD;
+        $scope.nextAd = function()
+        {
+            var next = $scope.next.index;
+            $scope.prev = $scope.curr;
+            $scope.curr = $scope.next;
+            if(next === lastIndex)
+                {
+                    $scope.next = $scope.advertisements[0];
+                }
+            else
+            {
+                $scope.next = $scope.advertisements[next + 1];
+            }
+        }
+        
+        $scope.prevAd = function()
+        {
+            var prev = $scope.prev.index;
+            $scope.next = $scope.curr;
+            $scope.curr = $scope.prev;
+            if(prev === 0)
+                {
+                    console.log("here");
+                    $scope.prev = $scope.advertisements[lastIndex];
+                }
+            else
+            {
+                $scope.prev = $scope.advertisements[prev - 1];
+            }
+        }
     }
     
     
@@ -555,6 +774,7 @@
     .controller("usController", usController)
     .config(['$routeProvider', routingConfig])
     .service("usModelD", usModel)
+    .service("putnam_county_adv", putnam_county_adv)
     .service("putnam_county_BBNSS", putnam_county_BBNSS)
     .service("shops_filter_model", shops_filter_model)
 })();

@@ -12,25 +12,16 @@
 </html>
 
 <script>
-        document.getElementById("defaultOpen").click();
-    function openTab(evt, tabName)
-        {
-            var i;
-            //hide tab
-            var x = document.getElementsByClassName("navbar");
-            for (i = 0; i < x.length; i++)
-                {
-                    x[i].style.display = "none";
-                }
-            
-            //get all tablinks and set them to inactive
-            var tablinks = document.getElementsByClassName("navbtn");
-            for (i = 0; i < navbtn.length; i++)
-                {
-                    navbtn[i].className = navbtn[i].className.replace(" active", "");
-                }
-            //show tab
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
+    var countdownDate = new Date().getTime();
+    var time = 2000;  //60 mins in milliseconds
+    var x = setInterval(function() {
+        time = time - 1000;
+        //click submit if count down is over
+        if (time <= 0)
+            {
+                time = 2000; document.getElementsByClassName("see_next_ad")[0].click();
+            }
+    }, 1000);
+</script>
+
+
