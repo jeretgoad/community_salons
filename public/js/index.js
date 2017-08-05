@@ -387,6 +387,8 @@
             }
     };
     
+    
+    
     var homeController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
         getLocation();
@@ -430,6 +432,7 @@
                 $scope.prev = $scope.advertisements[prev - 1];
             }
         }
+        
     }
     var barbersController = function($scope, putnam_county_adv, shops_filter_model, $location)
     {
@@ -469,6 +472,16 @@
             {
                 $scope.prev = $scope.advertisements[prev - 1];
             }
+        }
+        
+        $scope.prevIndex = function(salon)
+        {
+            salon.index--;
+        }
+        
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
         }
         
     }
@@ -513,6 +526,16 @@
             }
         }
         
+        $scope.prevIndex = function(salon)
+        {
+            salon.index--;
+        }
+        
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
+        }
+        
     }
     
     var nailsController = function($scope, putnam_county_adv, shops_filter_model, $location)
@@ -553,6 +576,16 @@
             {
                 $scope.prev = $scope.advertisements[prev - 1];
             }
+        }
+        
+        $scope.prevIndex = function(salon)
+        {
+            salon.index--;
+        }
+        
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
         }
         
     }
@@ -597,6 +630,16 @@
             }
         }
         
+        $scope.prevIndex = function(salon)
+        {
+            salon.index--;
+        }
+        
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
+        }
+        
     }
     
     var stylesController = function($scope, putnam_county_adv, shops_filter_model, $location)
@@ -637,6 +680,16 @@
             {
                 $scope.prev = $scope.advertisements[prev - 1];
             }
+        }
+        
+        $scope.prevIndex = function(salon)
+        {
+            salon.index--;
+        }
+        
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
         }
     }
     

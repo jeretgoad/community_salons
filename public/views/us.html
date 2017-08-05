@@ -7,20 +7,39 @@
 </div>
 <div class = "slidePannel">
     <div class = "slideView">
-        <div class = "prev_ad"></div>
-        <div class = "curr_ad"></div>
-        <div class = "next_ad"></div>
-        <a class = "see_prev_ad" ng-click = "prevAd()">
+        <div class = "prev_ad">
+            <img class = "ads" ng-src = "{{prev.img}}">
+                <div class = "linkMes">
+                    <a href = "{{prev.link}}" class = "linkTo" target = "_blank">
+                        {{prev.link}}
+                    </a>
+                </div>
+            </img>
+        </div>
+        <div class = "curr_ad">
+            <img class = "ads" ng-src = "{{curr.img}}">
+                <div class = "linkMes">
+                    <a href = "{{curr.link}}" class = "linkTo" target = "_blank">
+                        {{curr.link}}
+                    </a>
+                </div>
+            </img>
+        </div>
+        <div class = "next_ad">
+            <img class = "ads" ng-src = "{{next.img}}">
+                <div class = "linkMes">
+                    <a href = "{{next.link}}" class = "linkTo" target = "_blank">
+                        {{next.link}}
+                    </a>
+                </div>
+            </img>
+        </div>
+        <a class="see_prev_ad" ng-click="prevAd()">
             <img class = "arrow_prev" src = "../IMG/arrow_left.png" />
         </a>
-        <a class = "see_next_ad" ng-click = "nextAd()">
+        <a class="see_next_ad" ng-click="nextAd()">
             <img class = "arrow_next" src = "../IMG/arrow_right.png" />
         </a>
-        <div class = "storage">
-            <img class = "ads" ng-src = "{{prev.img}}"></img>
-            <img class = "ads" ng-src = "{{curr.img}}"></img>
-            <img class = "ads" ng-src = "{{next.img}}"></img>
-        </div>
     </div>
 </div>
 <div class="navbar">

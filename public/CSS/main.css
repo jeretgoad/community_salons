@@ -463,21 +463,6 @@ body {
     margin-top: 10px;
 }
 
-#slideshow {
-    position: relative;
-    width: 20%;
-    height: 80%;
-    padding: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-#slideshow > div {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-}
 
 .slidePannel {
     display: flex;
@@ -504,7 +489,7 @@ body {
 
 .ads {
     height: 100%;
-    width: 33.33%;
+    width: 100%;
     float: left;
     -webkit-transition: opacity 2s ease-in-out;
     -moz-transition: opacity 2s ease-in-out;
@@ -533,10 +518,8 @@ body {
     height:100%;
     width:33.33%;
     position: absolute;
-    left:0;
     display: flex;
-    opacity: .1;
-    background-color: grey;
+    left:0;
 }
 
 .next_ad {
@@ -554,7 +537,37 @@ body {
     border-right: 2px solid black;
 }
 
+.slideView .prev_ad:hover, .slideView .curr_ad:hover, .slideView .next_ad:hover {
+    -moz-box-shadow: 0 0 30px #000;
+    -webkit-box-shadow: 0 0 30px #000;
+    box-shadow: 0 0 30px #000;
+}
 
+.linkMes {
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    bottom:0;
+    top: auto;
+    text-align: center;
+}
+
+.prev_ad:hover .linkMes, .curr_ad:hover .linkMes, .next_ad:hover .linkMes {
+    opacity: .7;
+    
+}
+
+.linkTo{
+    font-size: 100%;
+    color: white;
+    margin-top: 2%;
+}
+
+.linkTo a:hover{
+    cursor: pointer;
+}
 
 .arrow_prev, .arrow_next{
     width:100%;

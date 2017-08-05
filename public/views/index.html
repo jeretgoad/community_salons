@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="../CSS/main.css">
         <script src="../lib/angular/angular.js"></script>
         <script src="../lib/angular-route/angular-route.js"></script>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
        <script src="../js/index.js"></script>
 	</head> 
     <body ng-app="salons" ng-view>
@@ -16,12 +17,21 @@
     var time = 2000;  //60 mins in milliseconds
     var x = setInterval(function() {
         time = time - 1000;
-        //click submit if count down is over
+        $(".slideView").mouseover(function() {
+           time = time + 1000;
+        });
+        $(".slideView").mouseout(function() {
+           if(time > 2000)
+               {
+                   time = 2000;
+               }
+        });
         if (time <= 0)
             {
                 time = 2000; document.getElementsByClassName("see_next_ad")[0].click();
             }
     }, 1000);
 </script>
+
 
 
