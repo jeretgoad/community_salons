@@ -1,46 +1,37 @@
-<div class = "topbar">
-    <div class = "title"><b>Community Salons</b><div class = slogan><b>"It's more then hair!"</b>
-        </div></div>
-</div>
-<div class="navbar">
-    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
-    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
-    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
-    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li>
-    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
-</div>
+<header ng-include="'header.html'"></header>
 <div class = "column-board">
-    <div class = "columns"><b>Nearest Stylist Salons</b><br><br>
-        <b>
-            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance':reverse">
-                <div class = "homeShops">
-                    <a href = "{{salon.link}}" target ="_blank">
-                        <div class = "butt"></div>
-                    </a>
-                    <a href = "#!/styles">{{salon.name}}</a>
-                </div> 
-                <div class = "miles">
-					<p id="distance">
-                    {{distance}}</p>
-                </div>
-                <br>
-            </div>
-        </b>
-    </div>
-    <div class = "columns"><b>Nearest Barber Salons</b><br> <br>
+    <div class = "columns"><b>Nearest Barbers Salons</b><br><br>
         <b>
             <div class = "nearest" ng-repeat = "salon in nearBarbers | orderBy: 'distance':reverse">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/styles">{{salon.name}}</a>
+                    <a href = "#!/barbers">
+                        {{salon.name}}
+                    </a>
                 </div> 
                 <div class = "miles">
-                    <p id="distance">
-                    {{distance}}</p>
+                        {{salon.distance}} Miles
                 </div>
-                <br>
+                <br><br><br>
+            </div>
+        </b>
+    </div>
+    <div class = "columns"><b>Nearest Beauty Salons</b><br> <br>
+        <b>
+            <div class = "nearest" ng-repeat = "salon in nearBeauties | orderBy: 'distance':reverse">
+                <div class = "homeShops">
+                    <a href = "{{salon.link}}" target ="_blank">
+                        <div class = "butt"></div>
+                    </a>
+                    <a href = "#!/beauties">    {{salon.name}}
+                    </a>
+                </div> 
+                <div class = "miles">
+                    {{salon.distance}} Miles
+                </div>
+                <br><br><br>
             </div>
         </b>
     </div>
@@ -51,13 +42,46 @@
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
+                    <a href = "#!/nails">
+                        {{salon.name}}
+                    </a>
+                </div> 
+                <div class = "miles">
+                    {{salon.distance}} Miles
+                </div>
+                <br><br><br>
+            </div>
+        </b>
+    </div>
+    <div class = "columns"><b>Nearest Day Spas</b><br><br>
+        <b>
+            <div class = "nearest" ng-repeat = "salon in nearSpas | orderBy: 'distance':reverse">
+                <div class = "homeShops">
+                    <a href = "{{salon.link}}" target ="_blank">
+                        <div class = "butt"></div>
+                    </a>
+                    <a href = "#!/spas">{{salon.name}}</a>
+                </div> 
+                <div class = "miles">
+                    {{salon.distance}} Miles
+                </div>
+                <br><br><br>
+            </div>
+        </b>
+    </div>
+    <div class = "columns"><b>Nearest Style Salons</b><br><br>
+        <b>
+            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance':reverse">
+                <div class = "homeShops">
+                    <a href = "{{salon.link}}" target ="_blank">
+                        <div class = "butt"></div>
+                    </a>
                     <a href = "#!/styles">{{salon.name}}</a>
                 </div> 
                 <div class = "miles">
-                    <p id="distance">
-                    {{distance}}</p>
+                    {{salon.distance}} Miles
                 </div>
-                <br>
+                <br><br><br>
             </div>
         </b>
     </div>

@@ -1,14 +1,4 @@
-<div class = "topbar">
-    <div class = "title"><b>Community Salons</b><div class = slogan><b>"It's more then hair!"</b>
-        </div></div>
-</div>
-<div class="navbar">
-    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
-    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
-    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
-    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li>
-    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
-</div>
+<header ng-include="'header.html'"></header>
 <div id="Home2" class="w3-container w3-border li_tab">
     <div class="fl-left2">
         <div>
@@ -21,12 +11,26 @@
                         </div>
                     </div>
                     <div class = "infoUs">
-                        <span style="color:blue">Company: </span>Community Salon is an advertisement company that promotes local business within the community. Advertisement will be displayed in digital frames throughout different salons within the community.  
+                        <div class = "tag">
+                            Company:
                         </div>
+                        <div class = "discr">
+                            <span style = "font-size: 100%">
+                                Community Salon is an advertisement company that promotes local business within the community. Local business are advertise through Community Salons web database, and digital frames located throughout local barber shops, style salons, beauty salons, day spas, and nail salons. 
+                            </span>
+                        </div>
+                    </div>
                     <div class = "infoUs">
-                        <span style="color:blue">Purpose: </span>Community Salon is a company that gives back to local communities. We do this by partnering with the local salons to display the digital frames. In return, we are donating $5,000 to the local high school on behalf of all the salons who participate. The donations come from the money we generate from advertisement. Our business's goal is to pursue for a better tomorrow by teaming up with the local salons and giving back to the youth within the community.  
+                        <div class = "tag">
+                            Purpose:
+                        </div>
+                        <div class = "discr">
+                            <span style = "font-size: 100%">
+                                Community Salon is a company that gives back to local communities. We do this by partnering with the local salons/shops to display digital frames in their buildings. The revenue we generate from advertisement, we donate $5,000 to the local high school on behalf of all the salons who participate. Our business's goal is to pursue for a better tomorrow by teaming up with the local salons and giving back to the youth within the community. 
+                            </span>
+                        </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -34,22 +38,47 @@
 <div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "worker in workers">
     <div class="fl-left2">
         <div>
-            <h2 id ="h2">{{worker.name}}</h2>
+            <h2 id ="h2">
+                {{worker.name}}
+            </h2>
             <div>
                 <div class="list-item2">
                     <div class = "infoUs">
                         <div class = "imageUs">
-                            <img src = "{{worker.img}}"/><br>
-                            <span style="color:blue">Title: </span>{{worker.title}}
+                            <img src = "{{worker.img}}"/>
+                            <br>
+                                <div class = "tag">
+                                    Title: 
+                            </div>
+                            <div class = "discr">
+                                {{worker.title}}
+                            </div>
                         </div>
                     </div>
                     <div class = "infoUs">
-                        <span style="color:blue">Telephone:</span> {{worker.number}}
-                        <br><br><br><br><br><p><span style="color:blue">Business Address:</span> 186 Brown Ln, Gainesboro, TN, 38562
+                        <div class = "tag">
+                            Telephone:
+                        </div> 
+                        <div class = "discr">
+                            {{worker.number}}
+                        </div>
+                        <br><br><br><br><br>
+                        <p>
+                            <div class = "tag">
+                                Business Address:
+                            </div> 
+                            <div class = "discr">
+                                186 Brown Ln, Gainesboro, TN, 38562
+                            </div>
                         </p>
                     </div>
                     <div class = "infoUs">
-                        <span style="color:blue">Contribution:</span> <br>{{worker.disc}}
+                        <div class = "tag">
+                            Contribution:
+                        </div> 
+                        <div class = "discr">
+                            {{worker.disc}}
+                        </div>
                     </div>
                 </div>
             </div>

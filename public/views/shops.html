@@ -1,13 +1,4 @@
-<div class = "topbar">
-    <div class = "title">Community Salons</div>
-</div>
-<div class="navbar">
-    <li><a href = "#!/" class="navbtn" id="home">Home</a></li>
-    <li><a href = "#!/styles" class="navbtn" id="styles">Style Shops</a></li>
-    <li><a href = "#!/barbers" class="navbtn" id="barbers">Barber Shops</a></li>
-    <li><a href = "#!/nails" class="navbtn" id="nails">Nail Shops</a></li> 
-    <li><a href = "#!/us" class="navbtn" id="us">About Us</a></li>
-</div>
+<header ng-include="'header.html'"></header>
 <div id="Home2" class="w3-container w3-border li_tab" ng-repeat = "salon in salons | orderBy: 'distance':reverse">
     <div class="fl-left">
         <div>
@@ -22,13 +13,75 @@
             </h2>
             <div>
                 <div class="list-item">
-                    <div class = "info">Address: 
-                        {{salon.address}}, {{salon.city}}, {{salon.state}}, {{salon.zip}}  <br><br><br> Owner: {{salon.owner}}<br><br><div class = "image"><img src = "{{salon.ownImg}}" /></div></div>
-                    <div class = "info">Schedule: <br> {{salon.Monday}} <br> {{salon.Tuesday}}<br> {{salon.Wednesday}} <br> {{salon.Thursday}}<br> {{salon.Friday}} <br> {{salon.Saturday}}
-                    <br> {{salon.Sunday}} <br><br> phone: {{salon.phone}}</div> 
+                    <div class = "info">
+                        <div class = "shopTag">
+                            Address:
+                        </div>
+                        <div class = "discr">
+                            {{salon.address}}
+                        </div>  
+                        <br>
+                        <div class = "shopTag">
+                            Owner:
+                        </div>
+                        <div class = "discr">
+                            {{salon.owner}}
+                        </div>
+                        <br>
+                        <div class = "image">
+                            <img ng-src = "{{salon.ownImg}}" />
+                        </div>
+                    </div>
+                    <div class = "info">
+                        <div class = "shopTag">
+                            Schedule:
+                        </div>
+                        <div class = "discr">
+                            {{salon.Monday}} 
+                            <br> 
+                            {{salon.Tuesday}}
+                            <br> 
+                            {{salon.Wednesday}} 
+                            <br> 
+                            {{salon.Thursday}}
+                            <br> 
+                            {{salon.Friday}} 
+                            <br> 
+                            {{salon.Saturday}}
+                            <br> 
+                            {{salon.Sunday}} 
+                            <br><br>
+                        </div>
+                         <div class = "shopTag">
+                             phone:
+                        </div> 
+                        <div class = "discr">
+                            {{salon.phone}}
+                        </div>
+                    </div> 
                 </div>
-                <div class = "info"><img src = "{{salon.img}}" /></div>
+                <div class = "info2">
+                    <img ng-src = "{{salon.img[salon.index]}}">
+                        <span ng-if = "salon.img.length > 1">
+                            <span ng-if = "salon.index > 0">
+                                <div id = "left-holder">
+                                    <a ng-click = "prevIndex(salon)">
+                                        <img class = "leftArrow" src = "../IMG/arrow_left.png" />
+                                    </a>
+                                </div>
+                            </span>
+                            <span ng-if = "salon.img.length > (salon.index+1)">
+                                <div id = "right-holder">
+                                    <a ng-click = "nextIndex(salon)">
+                                        <img class = "rightArrow" src = "../IMG/arrow_right.png" />
+                                    </a>
+                                </div>
+                            </span>
+                        </span>
+                    </img>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>

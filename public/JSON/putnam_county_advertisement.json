@@ -1,0 +1,32 @@
+[
+            {
+                "name": "ABC Carpet Clean",
+                "index": 0,
+                "img": "../IMG/abc_carpet_clean.png",
+                "link": "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                "name": "The HandyMan Van",
+                "index": 1,
+                "img": "../IMG/the_handyman_van.jpg",
+                "link": "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                "name": "Seminole Stores",
+                "index": 2,
+                "img": "../IMG/seminole_stores.jpg",
+                "link": "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                "name": "Handy Man",
+                "index": 3,
+                "img": "../IMG/handy_man.jpg",
+                "link": "https://www.facebook.com/jeret.goad/"
+            },
+            {
+                "name": "Gator Slide Farm",
+                "index": 4,
+                "img": "../IMG/gator_slide.jpg",
+                "link": "https://www.facebook.com/jeret.goad/"
+            }
+]
