@@ -1,7 +1,15 @@
-# community_salons
+# Community Salons
 
 Backend development guide:
 
-Run <b>npm update</b> before testing the project.
+Technology used:
+- express server
+- node.js
+- mongodb
+- mongoose
 
-To initialize mongodb: <b>mongod --dbpath app/data/db</b>
+Run `npm update` before testing the project.
+
+Use `node server` to start testing the project.
+
+To initialize mongodb: `mongod --dbpath app/data/db`
