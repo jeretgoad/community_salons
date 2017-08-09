@@ -8,7 +8,9 @@ exports.create = function(req, res, next) {
   
   worker.save(function(err) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
     } else {
       res.json(worker);
     }
@@ -19,7 +21,9 @@ exports.create = function(req, res, next) {
 exports.list = function(req, res, next) {
   Worker.find({}, function(err, workers) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
     } else {
       res.json(workers);
     }
@@ -48,7 +52,9 @@ exports.workerById = function(req, res, next, id) {
 exports.update = function(req, res, next) {
   Worker.findByIdAndUpdate(req.worker.id, req.body, function(err, worker) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
     } else {
       res.json(worker);
     }
@@ -59,9 +65,22 @@ exports.update = function(req, res, next) {
 exports.delete = function(req, res, next) {
   req.worker.remove(function(err) {
     if (err) {
-      return next(err);
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
     } else {
       res.json(req.worker);
     }
   });
+};
+
+//error handling
+var getErrorMessage = function(err) {
+  if (err.errors) {
+    for (var errName in err.errors) {
+      if (err.errors[errName].message) return err.errors[errName].message;
+    }
+  } else {
+    return 'Unkown server error';
+  }
 };

@@ -38,6 +38,7 @@ module.exports = function() {
   require('../app/routes/index.server.routes.js')(app);
   require('../app/routes/workers.server.routes.js')(app);
   require('../app/routes/salons.server.routes.js')(app);
+  require('../app/routes/advertisements.server.routes.js')(app);
   
   app.use(express.static('./public'));
   

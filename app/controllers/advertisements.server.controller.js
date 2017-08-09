@@ -1,75 +1,75 @@
 'use strict'
 
-var Salon = require('mongoose').model('Salon');
+var Advertisement = require('mongoose').model('Advertisement');
 
-//create new salons and save them into the database
+//create new ads and save them to database
 exports.create = function(req, res, next) {
-  var salon = new Salon(req.body);
+  var advertisement = new Advertisement(req.body);
   
-  salon.save(function(err) {
+  advertisement.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(salon);
+      res.json(advertisement);
     }
   });
 };
 
-//get a list of all salons
+//get all advertisements
 exports.list = function(req, res, next) {
-  Salon.find({}, function(err, salons) {
+  Advertisement.find({}, function(err, ads) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(salons);
+      res.json(ads);
     }
   });
 };
 
-//get a salon by id
+//get ads by id
 exports.read = function(req, res) {
-  res.json(req.salon);
+  res.json(req.ads);
 };
 
-exports.salonById = function(req, res, next, id) {
-  Salon.findOne({
+exports.adsById = function(req, res, next, id) {
+  Advertisement.findOne({
     _id: id
-  }, function(err, salon) {
+  }, function(err, ads) {
     if (err) {
       return next(err);
     } else {
-      req.salon = salon;
+      req.ads = ads;
       next();
     }
   });
 };
 
-//update a salon info
+//update ads
 exports.update = function(req, res, next) {
-  Salon.findByIdAndUpdate(req.salon.id, req.body, function(err, salon) {
+  Advertisement.findByIdAndUpdate(req.ads.id, req.body, function(err, ads) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(salon);
+      res.json(ads);
     }
   });
 };
 
-//delete an existing salon
+//delete existing ads
 exports.delete = function(req, res, next) {
-  req.salon.remove(function(err) {
+  req.ads.remove(function(err) {
     if (err) {
       return res.status(400).send({
         message: getErrorMessage(err)
       });
     } else {
-      res.json(req.salon);
+      res.json(req.ads);
     }
   });
 };
