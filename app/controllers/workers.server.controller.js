@@ -4,7 +4,7 @@ var Worker = require('mongoose').model('Worker');
 
 //create new workers and save them into the database
 exports.create = function(req, res, next) {
-  var worker = new User(req.body);
+  var worker = new Worker(req.body);
   
   worker.save(function(err) {
     if (err) {
@@ -34,7 +34,7 @@ exports.read = function(req, res) {
 exports.workerById = function(req, res, next, id) {
   Worker.findOne({
     _id: id
-  }, function(err, user) {
+  }, function(err, worker) {
     if (err) {
       return next(err);
     } else {
@@ -46,7 +46,7 @@ exports.workerById = function(req, res, next, id) {
 
 //update a worker info
 exports.update = function(req, res, next) {
-  Worker.findByIdAndUpdate(req.worker.id, req,body, function(err, worker) {
+  Worker.findByIdAndUpdate(req.worker.id, req.body, function(err, worker) {
     if (err) {
       return next(err);
     } else {

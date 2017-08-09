@@ -1,19 +1,27 @@
-//database schema for workers of the service
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WorkerSchema = new Schema({
   name: {
     type: String,
-    unique: true
+    unique: true,
+    default: 'Not Specified'
   },
-  phoneNumber: String,
-  title: String,
-  bio: String,
-  img: String,
-  created: {
-    type: Date,
-    default: Date.now
+  phoneNumber: {
+    type: String,
+    default: '(888)-888-8888'
+  },
+  title: {
+    type: String,
+    default: 'worker'
+  },
+  bio: {
+    type: String,
+    default: 'Not filled'
+  },
+  img: {
+    type: String,
+    default: '/'
   }
 });
 

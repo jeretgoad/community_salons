@@ -545,7 +545,7 @@
     };
     
     angular
-    .module("salons")
+    .module("community-salons", [])
     .controller("homeController", homeController)
     .controller("barbersController", barbersController)
     .controller("beautiesController", beautiesController)

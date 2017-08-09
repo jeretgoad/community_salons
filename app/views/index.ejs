@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  
+  <!-- angular templates -->
+  <section ng-include="'/views/header.html'"></section>
+  <section ng-view></section>
+  
+  
+  <!-- scripts -->
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+  
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/application.js"></script>
+
+</body>
+</html>

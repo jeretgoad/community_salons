@@ -5,7 +5,7 @@ module.exports = function(app) {
     .post(workers.create)
     .get(workers.list);
   
-  app.route('/workers:workerId')
+  app.route('/workers/:workerId')
     .get(workers.read)
     .put(workers.update)
     .delete(workers.delete);

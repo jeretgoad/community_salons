@@ -7,8 +7,7 @@ exports.render = function(req, res) {
   
   req.session.lastVisit = new Date();
   
-  res.render('home', {
-    slogan: "It's more then hair!",
+  res.render('index', {
     title: 'Community Salon'
   })
 };
