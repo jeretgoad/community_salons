@@ -2,6 +2,12 @@ body {
     background-color: bisque;
 }
 
+#map{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .topbar {
     height: 12%;
     width: 110%;
@@ -260,7 +266,6 @@ body {
 
 .title
 {
-    padding-left: 2%;
     padding-top: -2%;
     padding-bottom: 2.5%;
     text-align: center;
@@ -278,6 +283,12 @@ body {
 
 .title .slogan {
     display: block;
+}
+
+.title:hover {
+    -moz-box-shadow: 0 0 30px #000;
+    -webkit-box-shadow: 0 0 30px #000;
+    box-shadow: 0 0 30px #000;
 }
 
 
