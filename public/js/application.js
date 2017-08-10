@@ -1,6 +1,6 @@
 var mainApplicationModuleName = 'communitySalon';
 
-var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngResource' 'ngRoute','workers','community-salons']);
+var mainApplicationModule = angular.module(mainApplicationModuleName, ['ngRoute','community-salons']);
 
 mainApplicationModule.config(['$locationProvider',
   function($locationProvider) {
@@ -8,7 +8,9 @@ mainApplicationModule.config(['$locationProvider',
   }
 ]);
 
-if (window.location.hash === '#_=_') window.location.hash = '#!';
+if (window.location.hash === '#_=_') {
+  window.location.hash = '#!';
+}
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, [mainApplicationModuleName]);
