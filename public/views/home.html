@@ -1,12 +1,13 @@
+<header ng-include="'header.html'"></header>
 <div class = "column-board">
     <div class = "columns"><b>Nearest Barbers Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBarbers | orderBy: 'distance':reverse">
+            <div class = "nearest" ng-repeat = "salon in nearBarbers">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/barbers">
+                    <a ng-click="alterType('barber')">
                         {{salon.name}}
                     </a>
                 </div> 
@@ -19,12 +20,13 @@
     </div>
     <div class = "columns"><b>Nearest Beauty Salons</b><br> <br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBeauties | orderBy: 'distance':reverse">
+            <div class = "nearest" ng-repeat = "salon in nearBeauties">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/beauties">    {{salon.name}}
+                    <a ng-click="alterType('beauty')">
+                        {{salon.name}}
                     </a>
                 </div> 
                 <div class = "miles">
@@ -36,12 +38,12 @@
     </div>
     <div class = "columns"><b>Nearest Nail Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearNails | orderBy: 'distance':reverse">
+            <div class = "nearest" ng-repeat = "salon in nearNails">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/nails">
+                    <a ng-click="alterType('nail')">
                         {{salon.name}}
                     </a>
                 </div> 
@@ -54,12 +56,14 @@
     </div>
     <div class = "columns"><b>Nearest Day Spas</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearSpas | orderBy: 'distance':reverse">
+            <div class = "nearest" ng-repeat = "salon in nearSpas">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/spas">{{salon.name}}</a>
+                    <a ng-click="alterType('spa')">
+                        {{salon.name}}
+                    </a>
                 </div> 
                 <div class = "miles">
                     {{salon.distance}} Miles
@@ -70,12 +74,14 @@
     </div>
     <div class = "columns"><b>Nearest Style Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance':reverse">
+            <div class = "nearest" ng-repeat = "salon in nearStyles">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
                     </a>
-                    <a href = "#!/styles">{{salon.name}}</a>
+                    <a ng-click="alterType('style')">
+                        {{salon.name}}
+                    </a>
                 </div> 
                 <div class = "miles">
                     {{salon.distance}} Miles

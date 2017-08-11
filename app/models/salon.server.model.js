@@ -25,6 +25,14 @@ var SalonSchema = new Schema({
     type: Array,
     default: [0, 0]
   },
+  distance: {
+    type: number,
+    default: 0
+  },
+  duration: {
+    type: number,
+    default: 0
+  },
   phone: {
     type: String,
     default: '(888)-888-8888'
