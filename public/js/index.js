@@ -25,8 +25,7 @@
     {
         var adverArray = function()
         {
-            var arrayAds = $http.get("../JSON/putnam_county_advertisement.json");
-            return arrayAds;
+            return $http.get("../JSON/putnam_county_advertisement.json");
         }
       
         var addAnAd = function(company)
@@ -541,7 +540,7 @@
                 controller:"usController"
             
         })
-        .otherwise({redirectTo:"../views/home.html"});   
+        .otherwise({redirectTo:"../views/home.html"});
     };
     
     angular
