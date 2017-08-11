@@ -210,16 +210,14 @@ body {
 }
 .navbar 
 {
-    list-style-type: none;
     margin: 0;
     border: 1px solid black;
     padding: 0;
     overflow: hidden;
-    background-color: black;
     border-bottom: 5px solid black;
     text-align: center;
-}
 
+}
 
 .navbtn
 {   

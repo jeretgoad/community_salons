@@ -13,7 +13,7 @@
 // added a getDistance function to somehow change the distace and duration attributes in the json files for the shops
 ( function()
 {
-    angular.module("salons",['ngRoute']);
+    angular.module("community-salons",['ngRoute']);
     
     var shopType = function()
     {
@@ -392,21 +392,17 @@
                 controller:"usController"
             
         })
-<<<<<<< HEAD
-        .otherwise({redirectTo:"../views/home.html"});
-=======
         .when("/map",
               {
                 templateUrl:"../views/map.html",
                 controller:"mapController"  
             
         })
-        .otherwise({redirectTo:"../views/home.html"});   
->>>>>>> a862f3f53ede7eab18a4c6a98d5e117d4ab3b301
+        .otherwise({redirectTo:"../views/home.html"});
     };
     
     angular
-    .module("salons")
+    .module("community-salons")
     .controller("homeController", homeController)
     .controller("shopController", shopController)
     .controller("usController", usController)
