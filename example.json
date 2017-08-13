@@ -1,0 +1,38 @@
+worker example:
+[
+	{
+		"name": "Steven Trojcak",
+		"phoneNumber": "(888)-888-8888",
+		"title": "Owner",
+		"bio": "Trojcak is the founder of .....",
+		"img": "../IMG/owner.jpeg"
+	}
+]
+
+salon example:
+[
+	{
+		"name": "Slick Spot",
+		"categories": ["beauty", "style"],
+		"address": "1800 W, Cookville, TN, 38501",
+		"county": "putnam",
+		"coordinates": [42, -82],
+		"phone": "(888)-888-8888",
+		"owner": "Tommy Boy",
+		"hours": ["8-5", "8-5",...], //here is an array of 7 strings that correspond to each day in a week
+		"index": 0,
+		"ownerImg": "../IMG/owner.jpeg",
+		"img": [""],  //array of images of  the salon
+		"link": "www.link.com"
+	}
+]
+
+advertisement example:
+[
+	{
+		"name": "BAC Carpet Clean",
+		"index": 0,
+		"img": "/img.jpeg",
+		"link": "www.link.com"
+	}
+]
