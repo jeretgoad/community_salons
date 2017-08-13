@@ -1,10 +1,12 @@
+<header ng-include="'/views/header.html'"></header>
+<section>
 <div id="Home2" class="w3-container w3-border li_tab">
     <div class="fl-left2">
         <div>
             <h2 id ="h2">Community Salons</h2>
             <div>
                 <div class="list-item2">
-                    <div class = "infoUs">
+                    <div class = "workerPic">
                         <div class = "imageUs">
                             <img src = "../IMG/logo.jpeg"/><br>
                         </div>
@@ -24,7 +26,7 @@
                             Purpose:
                         </div>
                         <div class = "discr">
-                            <span style = "font-size: 100%">
+                            <span style = "font-size: 90%">
                                 Community Salon is a company that gives back to local communities. We do this by partnering with the local salons/shops to display digital frames in their buildings. The revenue we generate from advertisement, we donate $5,000 to the local high school on behalf of all the salons who participate. Our business's goal is to pursue for a better tomorrow by teaming up with the local salons and giving back to the youth within the community. 
                             </span>
                         </div>
@@ -42,7 +44,7 @@
             </h2>
             <div>
                 <div class="list-item2">
-                    <div class = "infoUs">
+                    <div class = "workerPic">
                         <div class = "imageUs">
                             <img src = "{{worker.img}}"/>
                             <br>
@@ -71,7 +73,7 @@
                             </div>
                         </p>
                     </div>
-                    <div class = "infoUs">
+                    <div id = "infoMore">
                         <div class = "tag">
                             Contribution:
                         </div> 
@@ -84,3 +86,4 @@
         </div>
     </div>
 </div>
+</section>

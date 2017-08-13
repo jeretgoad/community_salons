@@ -1,5 +1,258 @@
-body {
+/* FULL HTML BODY LAYOUT */
+body 
+{
     background-color: bisque;
+}
+
+header {
+    position: absolute;
+    height:100%;
+    width:100%;
+}
+
+section{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 47%;
+}
+/* **START OF HEADER** */
+/* top of header with title and slogan */
+.topbar 
+{
+    height: 12%;
+    width: 100%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../IMG/logo.jpeg");
+    background-color: white;
+}
+
+/* start of slideshow for advertisement */
+.slidePannel 
+{
+    margin: auto;
+    display: flex;
+    width: 100%;
+    height: 22%;
+    background-color: bisque;
+    border: 3px solid black;
+}
+
+.slideView 
+{
+    position: relative;
+    width: 99%;
+    display: block;
+    margin: 0 auto;
+    height: 97%;
+    align-self: center;
+    overflow: hidden;
+}
+
+.ads {
+    height: 100%;
+    width: 100%;
+    float: left;
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
+}
+
+.see_prev_ad, .see_next_ad {
+    height: 100%;
+    width: 5%;
+    position: absolute;
+    left:0;
+    display: flex;
+    background-color: black;
+    opacity: .5;
+    transition: all 0.2s ease-in-out;
+}
+
+.see_next_ad {
+    right: 0;
+    left: auto;
+}
+
+
+.prev_ad, .next_ad{
+    height: 100%;
+    width: 33.33%;
+    position: absolute;
+    display: flex;
+    left:0;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+}
+
+.next_ad {
+    right: 0;
+    left: auto;
+}
+
+.curr_ad {
+    height:100%;
+    width:33.33%;
+    position: absolute;
+    display: flex;
+    left:33.33%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.slideView .prev_ad:hover, .slideView .curr_ad:hover, .slideView .next_ad:hover {
+    -moz-box-shadow: 0 0 30px #000;
+    -webkit-box-shadow: 0 0 30px #000;
+    box-shadow: 0 0 30px #000;
+}
+
+.linkMes {
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    top: auto;
+    text-align: center;
+}
+
+.prev_ad:hover .linkMes, .curr_ad:hover .linkMes, .next_ad:hover .linkMes {
+    opacity: .7;
+    
+}
+
+.linkTo{
+    font-size: 100%;
+    color: white;
+    margin-top: 2%;
+}
+
+.linkTo a:hover{
+    cursor: pointer;
+}
+
+.arrow_prev, .arrow_next{
+    width:100%;
+    align-self: center;
+}
+
+.arrow_prev {
+    background:url("../IMG/arrow_left.png");
+}
+
+.arrow_next {
+    background:url("../IMG/arrow_right.png");
+}
+
+.see_prev_ad:hover, .see_next_ad:hover {
+    background-color: rgba(0,0,0,0.5);
+    cursor:none;
+}
+
+
+/* start of tab layout */
+.navbar 
+{
+    margin: 0;
+    width: 100%;
+    height: 10%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 5px solid black;
+    text-align: center;
+    display: inline-flex;
+}
+
+.navbtn
+{   
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    color: black;
+    position: relative;
+}
+
+.tabTxt {
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    top: 20%;
+    left: 15%;
+    right: auto;
+}
+
+#tabHome {
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    top:20%;
+    left:30%;
+    right:auto;
+}
+
+.navbar a
+{
+    background-color: burlywood;  
+}
+
+.navbar a:hover
+{
+    background-color: grey;
+    cursor: pointer;
+}
+.navbar .currentTab
+{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.title
+{
+    padding-top: -2%;
+    padding-bottom: 2.5%;
+    text-align: center;
+    font-size: 48px;
+    font-style: oblique;
+    text-shadow: -3px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black;
+    color: burlywood;
+}
+
+.slogan{
+    text-align: center;
+    font-size: 30px;
+    color: burlywood;
+}
+
+.title .slogan 
+{
+    display: block;
+}
+
+.title:hover {
+    -moz-box-shadow: 0 0 30px #000;
+    -webkit-box-shadow: 0 0 30px #000;
+    box-shadow: 0 0 30px #000;
+}
+/* **END OF HEADER** */ 
+
+
+.logocontainer 
+{
+    width: auto;
+    height: inherit;
+    float: left;
 }
 
 #map{
@@ -8,36 +261,21 @@ body {
     padding: 0;
 }
 
-.topbar {
-    height: 12%;
-    width: 110%;
-    margin-left: -10;
-    margin-top:-7;
-    margin-bottom:8;
-    background: url("../IMG/logo.jpeg");
-    background-color: white;
-}
-
-.logocontainer {
-    width: auto;
-    height: inherit;
-    float: left;
-}
-
-
 .column-board{
-    display:flex;
+    height:100%;
+    width:100%;
+    display: inline-flex;
 }
 
 .columns {
+    position: inherit;
     font-size: 28px;
     text-decoration-color: aqua;
     border: 2px solid black;
-    width: 33%;
+    width: 30%;
     height: 90%;
     text-align: center;
     padding: 1%;
-    position:relative;
     display: inline-block;
     background-color: antiquewhite;
     text-shadow: 2px 2px #DEB887;
@@ -64,6 +302,7 @@ body {
 
 .homeShops a:hover {
     color: purple;
+    cursor: pointer;
 }
 
 .homeShops .butt {
@@ -107,7 +346,6 @@ body {
 }
 
 .nearest {
-    position:relative;
     font-style: normal;
     padding: 2%;
     font-size: 20px;
@@ -151,16 +389,28 @@ body {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
 }
 
-.imageUs{
+.workerPic
+{
+    font-size: 22px;
+    width: 20%;
     float: left;
-    width: 75%;
+    display: inline;
+    margin-left: 2.5%;
+    margin-top: 2%;
+}
+
+.imageUs
+{
+    float: left;
+    width: 100%;
     height: 65%;
     background-color: aqua;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
 }
 
 
-#Home2 img{
+#Home2 img
+{
     float: left;
     width: 100%;
     height: 100%;
@@ -171,33 +421,47 @@ body {
 }
 
 
-.info{
+.info
+{
     width: 45%;
     float: left;
     margin-left: 5%;
     display: inline-block;
 }
 
-.info2{
-    width: 45%;
+.info2
+{
+    width: 48%;
+    height:100%;
     margin-left: 5%;
     display: inline-block;
     position: relative;
     background-color: aliceblue;
 }
-.infoUs{
-    font-size: 20px;
+.infoUs
+{
+    font-size: 22px;
     width: 31.3%;
     float: left;
     display: inline;
-    margin-left: 2%;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+#infoMore
+{
+    font-size: 22px;
+    width: 41%;
+    float: left;
+    display: inline;
+    margin-left: 1%;
     margin-top: 2%;
 }
 
 .tag{
     text-shadow: 1px 1px #959595;
     color:blue;
-    font-size: 22px;
+    font-size: 23px;
 }
 
 .shopTag {
@@ -207,86 +471,6 @@ body {
 }
 .discr {
     text-shadow: 0.4px 0.4px #959595;
-}
-.navbar 
-{
-    margin: 0;
-    border: 1px solid black;
-    padding: 0;
-    overflow: hidden;
-    border-bottom: 5px solid black;
-    text-align: center;
-
-}
-
-.navbtn
-{   
-    float: left;
-    width: 14.2857143%;
-    height: 7%;
-    margin: auto;
-    background-color: white;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    position: relative;
-}
-
-.tabTxt {
-    position: absolute;
-    font-size: 22px;
-    top:13;
-    left:20;
-    right:auto;
-}
-
-#tabHome {
-    position: absolute;
-    left: 40;
-}
-
-.navbar a
-{
-    background-color: burlywood;  
-}
-
-.navbar a:hover
-{
-    background-color: grey;
-    cursor: pointer;
-}
-.navbar .currentTab
-{
-    background-color: black;
-    color: white;
-    font-weight: bold;
-}
-
-.title
-{
-    padding-top: -2%;
-    padding-bottom: 2.5%;
-    text-align: center;
-    font-size: 48px;
-    font-style: oblique;
-    text-shadow: -3px 0 black, 0 1px black,
-      1px 0 black, 0 -1px black;
-    color: burlywood;
-}
-.slogan{
-    text-align: center;
-    font-size: 30px;
-    color: burlywood;
-}
-
-.title .slogan {
-    display: block;
-}
-
-.title:hover {
-    -moz-box-shadow: 0 0 30px #000;
-    -webkit-box-shadow: 0 0 30px #000;
-    box-shadow: 0 0 30px #000;
 }
 
 
@@ -302,6 +486,7 @@ body {
     left:0;
     margin-right: 10px;
     margin-top: 7px;
+    margin-left:5px;
     width: 16px;
     height: 16px;
     border-radius: 8px;
@@ -317,8 +502,12 @@ body {
 }
 
 #h2 .miles {
+    position: absolute;
     margin-left: 30;
     margin-top: 5;
+    left: 35%;
+    right:auto;
+    top: 7%;
     text-shadow: none;
 }
 
@@ -469,132 +658,6 @@ body {
     font-size: 20px;
     margin: auto;
     margin-top: 10px;
-}
-
-
-.slidePannel {
-    display: flex;
-    width: 100%;
-    height: 22%;
-    background-color: bisque;
-    border: 3px solid black;
-}
-
-.slideView {
-    width: 99%;
-    display: block;
-    margin: 0 auto;
-    height: 97%;
-    align-self:center;
-    position: relative;
-    overflow: hidden;
-}
-
-.storage{
-    height:100%;
-    width:100%;
-}
-
-.ads {
-    height: 100%;
-    width: 100%;
-    float: left;
-    -webkit-transition: opacity 2s ease-in-out;
-    -moz-transition: opacity 2s ease-in-out;
-    -o-transition: opacity 2s ease-in-out;
-    transition: opacity 2s ease-in-out;
-}
-
-.see_prev_ad, .see_next_ad {
-    height:100%;
-    width:5%;
-    position: absolute;
-    left:0;
-    display: flex;
-    background-color: black;
-    opacity: .5;
-    transition: all 0.2s ease-in-out;
-}
-
-.see_next_ad {
-    right: 0;
-    left: auto;
-}
-
-
-.prev_ad, .next_ad{
-    height:100%;
-    width:33.33%;
-    position: absolute;
-    display: flex;
-    left:0;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-}
-
-.next_ad {
-    right: 0;
-    left: auto;
-}
-
-.curr_ad {
-    height:100%;
-    width:33.33%;
-    position: absolute;
-    display: flex;
-    left:33.33%;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-}
-
-.slideView .prev_ad:hover, .slideView .curr_ad:hover, .slideView .next_ad:hover {
-    -moz-box-shadow: 0 0 30px #000;
-    -webkit-box-shadow: 0 0 30px #000;
-    box-shadow: 0 0 30px #000;
-}
-
-.linkMes {
-    background-color: black;
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 25%;
-    bottom:0;
-    top: auto;
-    text-align: center;
-}
-
-.prev_ad:hover .linkMes, .curr_ad:hover .linkMes, .next_ad:hover .linkMes {
-    opacity: .7;
-    
-}
-
-.linkTo{
-    font-size: 100%;
-    color: white;
-    margin-top: 2%;
-}
-
-.linkTo a:hover{
-    cursor: pointer;
-}
-
-.arrow_prev, .arrow_next{
-    width:100%;
-    align-self: center;
-}
-
-.arrow_prev {
-    background:url("../IMG/arrow_left.png");
-}
-
-.arrow_next {
-    background:url("../IMG/arrow_right.png");
-}
-
-.see_prev_ad:hover, .see_next_ad:hover {
-    background-color: rgba(0,0,0,0.5);
-    cursor:none;
 }
 
 @-webkit-keyframes fadeEffect {
