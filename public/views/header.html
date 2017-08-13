@@ -5,7 +5,6 @@
         </div>
     </div>
 </div>
-
 <div class = "slidePannel">
     <div class = "slideView">
         <div class = "prev_ad">
@@ -15,6 +14,7 @@
                         {{prev.link}}
                     </a>
                 </div>
+            </img>
         </div>
         <div class = "curr_ad">
             <img class = "ads" ng-src = "{{curr.img}}">
@@ -23,6 +23,7 @@
                         {{curr.link}}
                     </a>
                 </div>
+            </img>
         </div>
         <div class = "next_ad">
             <img class = "ads" ng-src = "{{next.img}}">
@@ -31,6 +32,7 @@
                         {{next.link}}
                     </a>
                 </div>
+            </img>
         </div>
         <a class="see_prev_ad" ng-click="prevAd()">
             <img class = "arrow_prev" src = "../IMG/arrow_left.png" />
@@ -41,45 +43,31 @@
     </div>
 </div>
 <div class="navbar">
-  <ul>
-    <li>
         <a href = "#!/" class="navbtn" id="home">
-            <div class = "tabTxt">
-                <div id = "tabHome">Home</div>
-            </div>
+            <div id = "tabHome">Home</div>
         </a>
-    </li>
-    <li>
+  
         <a ng-click="alterType('barber')" class="navbtn" id="barbers">
             <div class = "tabTxt">Barber Shops</div>
         </a>
-    </li>
-    <li>
+    
         <a ng-click="alterType('beauty')" class="navbtn" id="beauties">
             <div class = "tabTxt">Beauty Salons</div>
         </a>
-    </li>
-    <li>
+  
         <a ng-click="alterType('nail')" class="navbtn" id="nails">
-            <div class = "tabTxt">
-                <div id = "tabNail">Nail Salons</div>
-            </div>
+            <div class = "tabTxt">Nail Salons</div>
         </a>
-    </li>
-    <li>
+  
         <a ng-click="alterType('spa')" class="navbtn" id="spas">
             <div class = "tabTxt">Day Spas</div>
         </a>
-    </li>
-    <li>
+  
         <a ng-click="alterType('style')" class="navbtn" id="styles">
             <div class = "tabTxt">Style Salons</div>
         </a>
-    </li>
-    <li>
+   
         <a href = "#!/us" class="navbtn" id="us">
             <div class = "tabTxt">About Us</div>
         </a>
-    </li>
-  </ul>
 </div>

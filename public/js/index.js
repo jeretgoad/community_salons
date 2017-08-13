@@ -99,6 +99,7 @@
             $scope.prev = $scope.advertisements[indexModel.prevIndex];
             $scope.curr = $scope.advertisements[indexModel.currIndex];
             $scope.next = $scope.advertisements[indexModel.nextIndex];
+            console.log($scope.prev.img);
             $scope.nextAd = function()
             {
                 var next = $scope.next.index;
