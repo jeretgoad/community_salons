@@ -92,6 +92,23 @@
         $scope.nearSpas = [];
         $scope.nearStyles = [];
         var AllTheSalons = [];
+        $scope.alterType = function(typeShop)
+        {
+            if(typeShop === "home")
+                {
+                    $location.path("/");
+                }
+            else if(typeShop === "us")
+                {
+                    $location.path("/us");
+                }
+            else
+                {
+                shopType.type = typeShop;
+                $scope.salons = shops_filter(typeShop, AllTheSalons);
+                $location.path("/shops");
+                }
+        }
         putnam_county_adv.allAds()
             .then(function(data) {
             $scope.advertisements = data.data;
@@ -147,13 +164,6 @@
             $scope.nearNails = shops_filter("nail", $scope.AllTheSalons);
             $scope.nearSpas = shops_filter("spa", $scope.AllTheSalons);
             $scope.nearStyles = shops_filter("style", $scope.AllTheSalons);
-            $scope.alterType = function(typeShop)
-            {
-                console.log("Type before: " + shopType.type);
-                shopType.type = typeShop;
-                console.log("Type after: " + shopType.type);
-                $location.path("/shops");
-            }
         });
         
         
@@ -161,6 +171,23 @@
     var shopController = function($scope, shopType, putnam_county_adv, putnam_county_BBNSS, indexModel, $location)
     {
         $scope.advertisements = [];
+        $scope.alterType = function(typeShop)
+        {
+            if(typeShop === "home")
+                {
+                    $location.path("/");
+                }
+            else if(typeShop === "us")
+                {
+                    $location.path("/us");
+                }
+            else
+                {
+                shopType.type = typeShop;
+                $scope.salons = shops_filter(typeShop, AllTheSalons);
+                $location.path("/shops");
+                }
+        }
         putnam_county_adv.allAds()
             .then(function(data) {
             $scope.advertisements = data.data;
@@ -218,10 +245,6 @@
             {
                 salon.index++;
             }
-            $scope.alterType = function(typeShop)
-            {
-                $scope.salons = shops_filter(typeShop, AllTheSalons);
-            }
         });
         
     }
@@ -232,10 +255,20 @@
         $scope.workers = [];
         $scope.alterType = function(typeShop)
         {
-            console.log("Type before: " + shopType.type);
-            shopType.type = typeShop;
-            console.log("Type after: " + shopType.type);
-            $location.path("/shops");
+            if(typeShop === "home")
+                {
+                    $location.path("/");
+                }
+            else if(typeShop === "us")
+                {
+                    $location.path("/us");
+                }
+            else
+                {
+                shopType.type = typeShop;
+                $scope.salons = shops_filter(typeShop, AllTheSalons);
+                $location.path("/shops");
+                }
         }
         putnam_county_adv.allAds()
             .then(function(data) {

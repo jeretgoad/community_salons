@@ -210,11 +210,10 @@ section{
     background-color: grey;
     cursor: pointer;
 }
-.navbar .currentTab
-{
-    background-color: black;
-    color: white;
-    font-weight: bold;
+
+.navbar #active{
+    background-color:beige;
+    cursor:auto;
 }
 
 .title
