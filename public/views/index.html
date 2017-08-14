@@ -8,27 +8,8 @@
        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfg9uOMb7h7p6PYtdsxyOD8den3YLBNT0&callback=getDistance"></script>
        <script src="../js/index.js"></script>
+       <script src="../js/slideShow.js"></script>
 	</head> 
     <body ng-app="salons" ng-view>
     </body>
 </html>
-<script>
-    var countdownDate = new Date().getTime();
-    var time = 2000;  //60 mins in milliseconds
-    var x = setInterval(function() {
-        time = time - 1000;
-        $(".slideView").mouseover(function() {
-           time = time + 1000;
-        });
-        $(".slideView").mouseout(function() {
-           if(time > 2000)
-               {
-                   time = 2000;
-               }
-        });
-        if (time <= 0)
-            {
-                time = 2000; document.getElementsByClassName("see_next_ad")[0].click();
-            }
-    }, 1000);
-</script>
