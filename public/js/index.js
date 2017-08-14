@@ -280,9 +280,12 @@
                 indexModel.nextIndex = $scope.next.index;
             }
         });
+        
+        var temp = [];
         usModelD.allWorkers()
             .then(function(data) {
-            $scope.workers = data.data;
+            temp = data.data;
+            $scope.workers = workersFilter(temp);
         });
     }
     
@@ -303,6 +306,28 @@
                     }
             }
         return salons;
+    };
+    
+    // filters the workers out in order
+    var workersFilter = function(workersArray)
+    {
+        var filteredWorkers = workersArray;
+        for(var i = 0; i < workersArray.length; i++)
+            {
+                if(workersArray[i].name === "Steven Trojcak")
+                    {
+                        var temp = filteredWorkers[0];
+                        filteredWorkers[0] = workersArray[i];
+                        filteredWorkers[i] = temp;
+                    }
+                if(workersArray[i].name === "Jeret Goad")
+                    {
+                        var temp = filteredWorkers[1];
+                        filteredWorkers[1] = workersArray[i];
+                        filteredWorkers[i] = temp;
+                    }
+            }
+        return filteredWorkers;
     };
     
     //set index to 0 for gallery show
