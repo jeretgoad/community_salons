@@ -374,7 +374,7 @@
         return
     }
     
-    var routingConfig = function($routeProvider)
+    var routingConfig = function($routeProvider, $locationProvider)
     {
         $routeProvider
         .when("/",
@@ -400,6 +400,7 @@
             
         })
         .otherwise({redirectTo:"../views/home.html"});
+      $locationProvider.html5Mode(true);
     };
     
     angular
@@ -408,7 +409,7 @@
     .controller("shopController", shopController)
     .controller("usController", usController)
     .controller("mapController", mapController)
-    .config(['$routeProvider', routingConfig])
+    .config(['$routeProvider', '$locationProvider', routingConfig])
     .service("shopType", shopType)
     .service("usModelD", usModel)
     .service("putnam_county_adv", putnam_county_adv)

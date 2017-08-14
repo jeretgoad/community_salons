@@ -1,11 +1,11 @@
 worker example:
 [
 	{
-		"name": "Bingxu Ren",
-		"phoneNumber": "N/A",
-		"title": "Web Developer",
-		"bio": "Ren is part-developer for Community Salons web database. Ren's main contribution is configuring and maintaining our web application's back-end services. He also helps with any changes, additions, and deletions to our stored database. Helps Goad with any maintenance or updates to the web application.",
-		"img": "../img/owner.jpeg"
+		"name": "Jeret Goad",
+		"phoneNumber": "(931)-704-2989",
+		"title": "Part Owner/Web Developer",
+		"bio": "Goad is part owner and web developer for Community Salons. He is responsible for creating and maintaining the web databases, contracts, flyers, and general information required by each company that is being represented on our web database. Goad also helps with negotiations with businesses on a smaller scale. Main contributor to the front-end development and any updates or maintenance required. Goad would be the preferred person to contact. Goad is the preferred person to contact dealing with any issues or questions about the technological side of Community Salons.",
+		"img": "../IMG/owner.jpeg"
 	}
 ]
 
