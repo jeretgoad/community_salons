@@ -42,7 +42,7 @@
     {
         var adverArray = function()
         {
-            return $http.get("../json/putnam_county_advertisement.json");
+            return $http.get("../JSON/putnam_county_advertisement.json");
         }
       
         var addAnAd = function(company)
@@ -60,7 +60,7 @@
     {
         var salonArray = function()
         {
-            return $http.get("../json/putnam_county_BBNSS.json"); 
+            return $http.get("../JSON/putnam_county_BBNSS.json"); 
         }
       
         var addSalon = function(salon)
