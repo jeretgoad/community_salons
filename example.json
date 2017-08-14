@@ -1,29 +1,29 @@
 worker example:
 [
 	{
-		"name": "Steven Trojcak",
-		"phoneNumber": "(888)-888-8888",
-		"title": "Owner",
-		"bio": "Trojcak is the founder of .....",
-		"img": "../IMG/owner.jpeg"
+		"name": "Bingxu Ren",
+		"phoneNumber": "N/A",
+		"title": "Web Developer",
+		"bio": "Ren is part-developer for Community Salons web database. Ren's main contribution is configuring and maintaining our web application's back-end services. He also helps with any changes, additions, and deletions to our stored database. Helps Goad with any maintenance or updates to the web application.",
+		"img": "../img/owner.jpeg"
 	}
 ]
 
 salon example:
 [
 	{
-		"name": "Slick Spot",
-		"categories": ["beauty", "style"],
-		"address": "1800 W, Cookville, TN, 38501",
+		"name": "We Did Em",
+		"categories": ["nail"],
+		"address": "Broadway S, Cookeville, TN, 38501",
 		"county": "putnam",
-		"coordinates": [42, -82],
+		"coordinates": [41.3679631, -83.643000002],
 		"phone": "(888)-888-8888",
-		"owner": "Tommy Boy",
-		"hours": ["8-5", "8-5",...], //here is an array of 7 strings that correspond to each day in a week
-		"index": 0,
-		"ownerImg": "../IMG/owner.jpeg",
-		"img": [""],  //array of images of  the salon
-		"link": "www.link.com"
+		"owner": "Kalea Black",
+		"hours": ["9-6", "9-6","9-5","9-6","9-6","12-4", "Closed"],
+		"index": 7,
+		"ownerImg": "../img/owner.jpeg",
+		"img": ["../img/nailSalon1.jpg"],
+		"link": "www.facebook.com/jeret.goad/"
 	}
 ]
 

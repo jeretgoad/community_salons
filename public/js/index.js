@@ -24,12 +24,12 @@
     {
       var workersArray = function()
       {
-          return $http.get("../JSON/community_salons_worker.json"); 
+          return $http.get("/workers"); 
       }
       
       var addWorker = function(worker)
       {
-          return $http.post("worker/add", worker);
+          return $http.post("workers/", worker);
       }
       
       return {
@@ -42,12 +42,12 @@
     {
         var adverArray = function()
         {
-            return $http.get("../JSON/putnam_county_advertisement.json");
+            return $http.get("../json/putnam_county_advertisement.json");
         }
       
         var addAnAd = function(company)
         {
-            return $http.post("advertisement/add", company);
+            return $http.post("ads/", company);
         }
       
         return {
@@ -60,12 +60,12 @@
     {
         var salonArray = function()
         {
-            return $http.get("../JSON/putnam_county_BBNSS.json"); 
+            return $http.get("../json/putnam_county_BBNSS.json"); 
         }
       
         var addSalon = function(salon)
         {
-            return $http.post("salon/add", salon);
+            return $http.post("salons/", salon);
         }
       
         return {
