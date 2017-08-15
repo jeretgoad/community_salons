@@ -17,7 +17,7 @@
     
     var shopType = function()
     {
-      return {type: ""}  
+      return {type: "home"}  
     };
     
     var usModel = function($http)
@@ -96,10 +96,12 @@
         {
             if(typeShop === "home")
                 {
+                    shopType.type = typeShop;
                     $location.path("/");
                 }
             else if(typeShop === "us")
                 {
+                    shopType.type = typeShop;
                     $location.path("/us");
                 }
             else
@@ -108,6 +110,16 @@
                 $scope.salons = shops_filter(typeShop, AllTheSalons);
                 $location.path("/shops");
                 }
+        }
+        $scope.isActive = function(type)
+        {
+            if(type === shopType.type)
+                {
+                    return true;
+                }
+            else{
+                return false;
+            }
         }
         putnam_county_adv.allAds()
             .then(function(data) {
@@ -175,10 +187,12 @@
         {
             if(typeShop === "home")
                 {
+                    shopType.type = typeShop;
                     $location.path("/");
                 }
             else if(typeShop === "us")
                 {
+                    shopType.type = typeShop;
                     $location.path("/us");
                 }
             else
@@ -187,6 +201,16 @@
                 $scope.salons = shops_filter(typeShop, AllTheSalons);
                 $location.path("/shops");
                 }
+        }
+        $scope.isActive = function(type)
+        {
+            if(type === shopType.type)
+                {
+                    return true;
+                }
+            else{
+                return false;
+            }
         }
         putnam_county_adv.allAds()
             .then(function(data) {
@@ -257,10 +281,12 @@
         {
             if(typeShop === "home")
                 {
+                    shopType.type = typeShop;
                     $location.path("/");
                 }
             else if(typeShop === "us")
                 {
+                    shopType.type = typeShop;
                     $location.path("/us");
                 }
             else
@@ -269,6 +295,16 @@
                 $scope.salons = shops_filter(typeShop, AllTheSalons);
                 $location.path("/shops");
                 }
+        }
+        $scope.isActive = function(type)
+        {
+            if(type === shopType.type)
+                {
+                    return true;
+                }
+            else{
+                return false;
+            }
         }
         putnam_county_adv.allAds()
             .then(function(data) {

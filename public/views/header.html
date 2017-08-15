@@ -43,31 +43,33 @@
     </div>
 </div>
 <div class="navbar">
-        <a ng-click="alterType('home')" class="navbtn" id='active'>
+        <a ng-click="alterType('home')" class="navbtnN" ng-class = "{'navbtnA': isActive('home')}">
             <div id = "tabHome">Home</div>
         </a>
   
-        <a ng-click="alterType('barber')" class="navbtn" id='none'>
+        <a ng-click="alterType('barber')" class="navbtnN" ng-class = "{'navbtnA': isActive('barber')}">
             <div class = "tabTxt">Barber Shops</div>
         </a>
     
-        <a ng-click="alterType('beauty')" class="navbtn" id='none'>
+        <a ng-click="alterType('beauty')" class="navbtnN" ng-class = "{'navbtnA': isActive('beauty')}">
             <div class = "tabTxt">Beauty Salons</div>
         </a>
   
-        <a ng-click="alterType('nail')" class="navbtn" id='none'>
+        <a ng-click="alterType('nail')" class="navbtnN" ng-class = "{'navbtnA': isActive('nail')}">
             <div class = "tabTxt">Nail Salons</div>
         </a>
   
-        <a ng-click="alterType('spa')" class="navbtn" id='none'>
+        <a ng-click="alterType('spa')" class="navbtnN" ng-class = "{'navbtnA': isActive('spa')}">
             <div class = "tabTxt">Day Spas</div>
         </a>
   
-        <a ng-click="alterType('style')" class="navbtn" id='none'>
+        <a ng-click="alterType('style')" class="navbtnN" ng-class = "{'navbtnA': isActive('style')}">
             <div class = "tabTxt">Style Salons</div>
         </a>
    
-        <a ng-click="alterType('us')" class="navbtn" id='none'>
+        <a ng-click="alterType('us')" class="navbtnN" ng-class = "{'navbtnA': isActive('us')}">
             <div class = "tabTxt">About Us</div>
         </a>
 </div>
+
+
