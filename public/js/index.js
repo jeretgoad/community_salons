@@ -83,15 +83,9 @@
         }
     }
     
-    var homeController = function($scope, shopType, putnam_county_adv,  putnam_county_BBNSS, indexModel, $location)
+    var headerController = function($scope, indexModel, shopType, putnam_county_adv, $location)
     {
         $scope.advertisements = [];
-        $scope.nearBarbers = [];
-        $scope.nearBeauties = [];
-        $scope.nearNails = [];
-        $scope.nearSpas = [];
-        $scope.nearStyles = [];
-        var AllTheSalons = [];
         $scope.alterType = function(typeShop)
         {
             if(typeShop === "home")
@@ -107,7 +101,6 @@
             else
                 {
                 shopType.type = typeShop;
-                $scope.salons = shops_filter(typeShop, AllTheSalons);
                 $location.path("/shops");
                 }
         }
@@ -128,7 +121,6 @@
             $scope.prev = $scope.advertisements[indexModel.prevIndex];
             $scope.curr = $scope.advertisements[indexModel.currIndex];
             $scope.next = $scope.advertisements[indexModel.nextIndex];
-            console.log($scope.prev.img);
             $scope.nextAd = function()
             {
                 var next = $scope.next.index;
@@ -165,7 +157,15 @@
                 indexModel.nextIndex = $scope.next.index;
             }
         });
-        
+    }
+    var homeController = function($scope, putnam_county_BBNSS, $location)
+    {
+        $scope.nearBarbers = [];
+        $scope.nearBeauties = [];
+        $scope.nearNails = [];
+        $scope.nearSpas = [];
+        $scope.nearStyles = [];
+        var AllTheSalons = [];
         putnam_county_BBNSS.allSalons()
             .then(function(data) {
             $scope.AllTheSalons = data.data;
@@ -183,81 +183,8 @@
         
         
     }
-    var shopController = function($scope, shopType, putnam_county_adv, putnam_county_BBNSS, indexModel, $location)
+    var shopController = function($scope, shopType, putnam_county_BBNSS, $location)
     {
-        $scope.advertisements = [];
-        $scope.alterType = function(typeShop)
-        {
-            if(typeShop === "home")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/");
-                }
-            else if(typeShop === "us")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/us");
-                }
-            else
-                {
-                shopType.type = typeShop;
-                $scope.salons = shops_filter(typeShop, AllTheSalons);
-                $location.path("/shops");
-                }
-        }
-        $scope.isActive = function(type)
-        {
-            if(type === shopType.type)
-                {
-                    return true;
-                }
-            else{
-                return false;
-            }
-        }
-        putnam_county_adv.allAds()
-            .then(function(data) {
-            $scope.advertisements = data.data;
-            var lastIndex = $scope.advertisements.length -1;
-            $scope.prev = $scope.advertisements[indexModel.prevIndex];
-            $scope.curr = $scope.advertisements[indexModel.currIndex];
-            $scope.next = $scope.advertisements[indexModel.nextIndex];
-            $scope.nextAd = function()
-            {
-                var next = $scope.next.index;
-                $scope.prev = $scope.curr;
-                $scope.curr = $scope.next;
-                if(next === lastIndex)
-                    {
-                        $scope.next = $scope.advertisements[0];
-                    }
-                else
-                {
-                    $scope.next = $scope.advertisements[next + 1];
-                }
-                indexModel.prevIndex = $scope.prev.index;
-                indexModel.currIndex = $scope.curr.index;
-                indexModel.nextIndex = $scope.next.index;
-            }
-
-            $scope.prevAd = function()
-            {
-                var prev = $scope.prev.index;
-                $scope.next = $scope.curr;
-                $scope.curr = $scope.prev;
-                if(prev === 0)
-                    {
-                        $scope.prev = $scope.advertisements[lastIndex];
-                    }
-                else
-                {
-                    $scope.prev = $scope.advertisements[prev - 1];
-                }
-                indexModel.prevIndex = $scope.prev.index;
-                indexModel.currIndex = $scope.curr.index;
-                indexModel.nextIndex = $scope.next.index;
-            }
-        });
         putnam_county_BBNSS.allSalons()
             .then(function(data) {
             AllTheSalons = data.data;
@@ -279,83 +206,9 @@
         
     }
     
-    var usController = function($scope, shopType, putnam_county_adv,  usModelD, indexModel, $location)
+    var usController = function($scope, usModelD, $location)
     {
-        $scope.advertisements = [];
         $scope.workers = [];
-        $scope.alterType = function(typeShop)
-        {
-            if(typeShop === "home")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/");
-                }
-            else if(typeShop === "us")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/us");
-                }
-            else
-                {
-                shopType.type = typeShop;
-                $scope.salons = shops_filter(typeShop, AllTheSalons);
-                $location.path("/shops");
-                }
-        }
-        $scope.isActive = function(type)
-        {
-            if(type === shopType.type)
-                {
-                    return true;
-                }
-            else{
-                return false;
-            }
-        }
-        putnam_county_adv.allAds()
-            .then(function(data) {
-            $scope.advertisements = data.data;
-            var lastIndex = $scope.advertisements.length -1;
-            $scope.prev = $scope.advertisements[indexModel.prevIndex];
-            $scope.curr = $scope.advertisements[indexModel.currIndex];
-            $scope.next = $scope.advertisements[indexModel.nextIndex];
-            $scope.nextAd = function()
-            {
-                var next = $scope.next.index;
-                $scope.prev = $scope.curr;
-                $scope.curr = $scope.next;
-                if(next === lastIndex)
-                    {
-                        $scope.next = $scope.advertisements[0];
-                    }
-                else
-                {
-                    $scope.next = $scope.advertisements[next + 1];
-                }
-                indexModel.prevIndex = $scope.prev.index;
-                indexModel.currIndex = $scope.curr.index;
-                indexModel.nextIndex = $scope.next.index;
-            }
-
-            $scope.prevAd = function()
-            {
-                var prev = $scope.prev.index;
-                $scope.next = $scope.curr;
-                $scope.curr = $scope.prev;
-                if(prev === 0)
-                    {
-                        $scope.prev = $scope.advertisements[lastIndex];
-                    }
-                else
-                {
-                    $scope.prev = $scope.advertisements[prev - 1];
-                }
-                indexModel.prevIndex = $scope.prev.index;
-                indexModel.currIndex = $scope.curr.index;
-                indexModel.nextIndex = $scope.next.index;
-            }
-        });
-        
         var temp = [];
         usModelD.allWorkers()
             .then(function(data) {
@@ -505,6 +358,7 @@
     
     angular
     .module("community-salons")
+    .controller("headerController", headerController)
     .controller("homeController", homeController)
     .controller("shopController", shopController)
     .controller("usController", usController)
