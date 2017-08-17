@@ -169,13 +169,16 @@
         putnam_county_BBNSS.allSalons()
             .then(function(data) {
             $scope.AllTheSalons = data.data;
-            getLocation($scope, $scope.AllTheSalons);
-            console.log("test: " + $scope.AllTheSalons[0].distance);
-            $scope.nearBarbers = shops_filter("barber", $scope.AllTheSalons);
-            $scope.nearBeauties = shops_filter("beauty", $scope.AllTheSalons);
-            $scope.nearNails = shops_filter("nail", $scope.AllTheSalons);
-            $scope.nearSpas = shops_filter("spa", $scope.AllTheSalons);
-            $scope.nearStyles = shops_filter("style", $scope.AllTheSalons);
+            getDistance($scope, $scope.AllTheSalons, function(err) {
+                if(!err) {
+                    console.log("test: " + $scope.AllTheSalons[0].distance);
+                    $scope.nearBarbers = shops_filter("barber", $scope.AllTheSalons);
+                    $scope.nearBeauties = shops_filter("beauty", $scope.AllTheSalons);
+                    $scope.nearNails = shops_filter("nail", $scope.AllTheSalons);
+                    $scope.nearSpas = shops_filter("spa", $scope.AllTheSalons);
+                    $scope.nearStyles = shops_filter("style", $scope.AllTheSalons);
+                }
+            });
         });
         
         
@@ -258,8 +261,11 @@
         putnam_county_BBNSS.allSalons()
             .then(function(data) {
             AllTheSalons = data.data;
-            console.log(shopType.type);
-            $scope.salons = shops_filter(shopType.type, AllTheSalons);
+            getDistance($scope, AllTheSalons, function(err) {
+                if(!err) {
+                    $scope.salons = shops_filter(shopType.type, AllTheSalons);
+                }
+            });
             $scope.prevIndex = function(salon)
             {
                 salon.index--;
@@ -410,62 +416,62 @@
     
     
     //get user geolocation and return it
-	var getLocation = function($scope, allSalons) {
-    	var latitude, longitude = 0;
-		if (navigator.geolocation) {
+	var getDistance = function($scope, allSalons, cb) {
+        var origin = {lat:0, lng:0};
+		if (navigator.geolocation) 
+        {
             navigator.geolocation.getCurrentPosition(function (position) {
-				latitude = position.coords.latitude;
-				longitude = position.coords.longitude;
-                getDistance(latitude, longitude, allSalons);
-			});
-		} else {
-			getError(err);
+                origin.lat = position.coords.latitude;
+                origin.lng = position.coords.longitude;
+                var allCoords = [];
+                for(var i = 0; i < allSalons.length; i++)
+                {
+                    var coords = {lat: 0, lng: 0};
+                    var salonUpdates = {lat:0, lng:0, distance:"", duration:""};
+                    coords.lat = allSalons[i].latitude;
+                    coords.lng = allSalons[i].longitude;
+                    allCoords.push(coords);
+                }
+                var service = new google.maps.DistanceMatrixService;
+                service.getDistanceMatrix({
+                    origins: [origin],
+                    destinations: allCoords,
+                    travelMode: 'DRIVING',
+                    unitSystem: google.maps.UnitSystem.IMPERIAL,
+                    avoidHighways: false,
+                    avoidTolls: false
+                    }, function(response, status) {
+                    if (status !== 'OK') 
+                    {
+                        cb('Error was: ' + status);
+                    } 
+                    else 
+                    {
+                        var originList = response.originAddresses;
+                        var destinationList = response.destinationAddresses;
+                        for (var i = 0; i < originList.length; i++) 
+                        {
+                            var results = response.rows[i].elements;
+                            for (var j = 0; j < results.length; j++) 
+                            {
+                                allSalons[j].distance = mySplit(results[j].distance.text);
+                                allSalons[j].duration = results[j].duration.text;
+                            }
+                        }
+                        cb(null);
+                    }
+                });
+		  });
+        }
+        else 
+        {
+            cb(getError(err));
 		}
 	};
     
-	var getDistance = function(lat, long, allSalons)
-    {
-        var origin = {lat:0, lng:0};
-        origin.lat = lat;
-        origin.lng = long;
-        console.log(origin.lat + ", " + origin.lng);
-        var allCoords = [];
-        for(var i = 0; i < allSalons.length; i++)
-            {
-                var coords = {lat: 0, lng: 0};
-                coords.lat = allSalons[i].latitude;
-                coords.lng = allSalons[i].longitude;
-                allCoords.push(coords);
-            }
-        var service = new google.maps.DistanceMatrixService;
-        service.getDistanceMatrix({
-          origins: [origin],
-          destinations: allCoords,
-          travelMode: 'DRIVING',
-          unitSystem: google.maps.UnitSystem.METRIC,
-          avoidHighways: false,
-          avoidTolls: false
-        }, function(response, status) {
-          if (status !== 'OK') {
-            alert('Error was: ' + status);
-          } else {
-            var originList = response.originAddresses;
-            var destinationList = response.destinationAddresses;
-            console.log("dest. size: " + destinationList.length);
-            for (var i = 0; i < originList.length; i++) {
-              var results = response.rows[i].elements;
-              for (var j = 0; j < results.length; j++) {
-                console.log(j + ": " + originList[i] + ' to ' + destinationList[j] +
-                    ': ' + results[j].distance.text + ' in ' +
-                    results[j].duration.text);
-                allSalons[j].distance = results[j].distance.text;
-                allSalons[j].duration = results[j].duration.text;
-                console.log(allSalons[j].distance);
-              }
-            }
-          }
-        });
-        return
+    var mySplit = function(string) {
+        var array = string.split(' ');
+        return parseInt(array[0]);
     }
     
     var routingConfig = function($routeProvider, $locationProvider)

@@ -1,9 +1,9 @@
 <header ng-include="'/views/header.html'"></header>
 <section>
 <div class = "column-board">
-    <div class = "columns"><b>Nearest Barbers Salons</b><br><br>
+    <div class = "columns"><b>Barbers Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBarbers">
+            <div class = "nearest" ng-repeat = "salon in nearBarbers | orderBy: 'distance'">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -19,9 +19,9 @@
             </div>
         </b>
     </div>
-    <div class = "columns"><b>Nearest Beauty Salons</b><br> <br>
+    <div class = "columns"><b>Beauty Salons</b><br> <br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBeauties">
+            <div class = "nearest" ng-repeat = "salon in nearBeauties | orderBy: 'distance'">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -37,9 +37,9 @@
             </div>
         </b>
     </div>
-    <div class = "columns"><b>Nearest Nail Salons</b><br><br>
+    <div class = "columns"><b>Nail Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearNails">
+            <div class = "nearest" ng-repeat = "salon in nearNails | orderBy: 'distance'">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -55,9 +55,9 @@
             </div>
         </b>
     </div>
-    <div class = "columns"><b>Nearest Day Spas</b><br><br>
+    <div class = "columns"><b>Day Spas</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearSpas">
+            <div class = "nearest" ng-repeat = "salon in nearSpas | orderBy: 'distance'">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -73,9 +73,9 @@
             </div>
         </b>
     </div>
-    <div class = "columns"><b>Nearest Style Salons</b><br><br>
+    <div class = "columns"><b>Style Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearStyles">
+            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance'">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
