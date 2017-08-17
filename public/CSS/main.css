@@ -4,13 +4,15 @@ body
     background-color: bisque;
 }
 
-header {
+header 
+{
     position: absolute;
     height:100%;
     width:100%;
 }
 
-section{
+section
+{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -51,7 +53,8 @@ section{
     overflow: hidden;
 }
 
-.ads {
+.ads 
+{
     height: 100%;
     width: 100%;
     float: left;
@@ -61,7 +64,8 @@ section{
     transition: opacity 2s ease-in-out;
 }
 
-.see_prev_ad, .see_next_ad {
+.see_prev_ad, .see_next_ad 
+{
     height: 100%;
     width: 5%;
     position: absolute;
@@ -72,13 +76,15 @@ section{
     transition: all 0.2s ease-in-out;
 }
 
-.see_next_ad {
+.see_next_ad 
+{
     right: 0;
     left: auto;
 }
 
 
-.prev_ad, .next_ad{
+.prev_ad, .next_ad
+{
     height: 100%;
     width: 33.33%;
     position: absolute;
@@ -88,12 +94,14 @@ section{
     border-right: 3px solid black;
 }
 
-.next_ad {
+.next_ad 
+{
     right: 0;
     left: auto;
 }
 
-.curr_ad {
+.curr_ad 
+{
     height:100%;
     width:33.33%;
     position: absolute;
@@ -103,13 +111,15 @@ section{
     border-right: 2px solid black;
 }
 
-.slideView .prev_ad:hover, .slideView .curr_ad:hover, .slideView .next_ad:hover {
+.slideView .prev_ad:hover, .slideView .curr_ad:hover, .slideView .next_ad:hover 
+{
     -moz-box-shadow: 0 0 30px #000;
     -webkit-box-shadow: 0 0 30px #000;
     box-shadow: 0 0 30px #000;
 }
 
-.linkMes {
+.linkMes 
+{
     background-color: black;
     opacity: 0;
     position: absolute;
@@ -120,35 +130,42 @@ section{
     text-align: center;
 }
 
-.prev_ad:hover .linkMes, .curr_ad:hover .linkMes, .next_ad:hover .linkMes {
+.prev_ad:hover .linkMes, .curr_ad:hover .linkMes, .next_ad:hover .linkMes 
+{
     opacity: .7;
     
 }
 
-.linkTo{
+.linkTo
+{
     font-size: 100%;
     color: white;
     margin-top: 2%;
 }
 
-.linkTo a:hover{
+.linkTo a:hover
+{
     cursor: pointer;
 }
 
-.arrow_prev, .arrow_next{
+.arrow_prev, .arrow_next
+{
     width:100%;
     align-self: center;
 }
 
-.arrow_prev {
+.arrow_prev 
+{
     background:url("../IMG/arrow_left.png");
 }
 
-.arrow_next {
+.arrow_next 
+{
     background:url("../IMG/arrow_right.png");
 }
 
-.see_prev_ad:hover, .see_next_ad:hover {
+.see_prev_ad:hover, .see_next_ad:hover 
+{
     background-color: rgba(0,0,0,0.5);
     cursor:none;
 }
@@ -196,7 +213,8 @@ section{
     background-color: beige;
 }
 
-.tabTxt {
+.tabTxt 
+{
     position: absolute;
     text-decoration: none;
     text-align: center;
@@ -206,7 +224,8 @@ section{
     right: auto;
 }
 
-#tabHome {
+#tabHome 
+{
     position: absolute;
     text-decoration: none;
     text-align: center;
@@ -240,7 +259,8 @@ section{
     color: burlywood;
 }
 
-.slogan{
+.slogan
+{
     text-align: center;
     font-size: 30px;
     color: burlywood;
@@ -251,7 +271,8 @@ section{
     display: block;
 }
 
-.title:hover {
+.title:hover 
+{
     -moz-box-shadow: 0 0 30px #000;
     -webkit-box-shadow: 0 0 30px #000;
     box-shadow: 0 0 30px #000;
@@ -266,21 +287,24 @@ section{
     float: left;
 }
 
-#map{
+#map
+{
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.column-board{
+.column-board
+{
     height:100%;
     width:100%;
     display: inline-flex;
 }
 
-.columns {
+.columns 
+{
     position: inherit;
-    font-size: 28px;
+    font-size: 30px;
     text-decoration-color: aqua;
     border: 2px solid black;
     width: 30%;
@@ -292,7 +316,8 @@ section{
     text-shadow: 2px 2px #DEB887;
 }
 
-.nearest .homeShops {
+.nearest .homeShops 
+{
     display: inline-flex;
     font-size: 22px;
     color: burlywood;
@@ -303,7 +328,8 @@ section{
     float:left;
 }
 
-.homeShops a {
+.homeShops a 
+{
     color: burlywood;
     font-style: oblique;
     font-weight: bold;
@@ -311,12 +337,14 @@ section{
     text-shadow: 1px 1px #000000;
 }
 
-.homeShops a:hover {
+.homeShops a:hover 
+{
     color: purple;
     cursor: pointer;
 }
 
-.homeShops .butt {
+.homeShops .butt 
+{
     float:left;
     left:0;
     margin-right: 10px;
@@ -329,55 +357,66 @@ section{
     box-shadow: 2px 2px 3px #DEB887;
 }
 
-.butt a:hover {
+.butt a:hover 
+{
     cursor: pointer;
 }
 
-.butt:hover{
+.butt:hover
+{
     box-shadow: 4px 4px 3px #787474;
     background-color: aliceblue;
 }
 
-.nearest .homeShops, .nearest .miles {
+.nearest .homeShops, .nearest .miles 
+{
     position: relative;
 }
 
-.us {
+.us 
+{
     color: red;
     font-size: 24px;
     text-align: center;
 }
 
-.us a:hover {
+.us a:hover 
+{
     cursor: pointer;
 }
 
-.marginR {
+.marginR 
+{
     margin-right: 1%;
 }
 
-.nearest {
+.nearest 
+{
     font-style: normal;
     padding: 2%;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 
-.miles {
+.miles, .duration 
+{
     color: black;
-    font-size: 17px;
+    font-size: 19px;
     display:inline-flex;
 }
 
-.nearest .miles{
-    width:40%;
+.nearest .miles
+{
+    width:33%;
+    font-size: 17px;
     float:right;
     right:0;
     margin-top:2%;
     text-shadow: none;
 }
 
-.dropbtn {
+.dropbtn 
+{
     background-color: black;
     color: white;
     font-size: 16px;
@@ -386,17 +425,20 @@ section{
     min-width: 90px;
 }
 
-.dropdown {
+.dropdown 
+{
     position: relative;
     display: inline-block;
     float: right;
     min-width: 105px;
 }
 
-.image{
+.image
+{
     float: left;
     width: 70%;
     height: 50%;
+    margin-bottom: 1%;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -445,6 +487,7 @@ section{
     width: 48%;
     height:100%;
     margin-left: 5%;
+    margin-top: 1%;
     display: inline-block;
     position: relative;
     background-color: aliceblue;
@@ -469,30 +512,36 @@ section{
     margin-top: 2%;
 }
 
-.tag{
+.tag
+{
     text-shadow: 1px 1px #959595;
     color:blue;
     font-size: 23px;
 }
 
-.shopTag {
+.shopTag 
+{
     text-shadow: .5px .5px #959595;
     color:blue;
     font-size: 17px;
 }
-.discr {
+.discr 
+{
     text-shadow: 0.4px 0.4px #959595;
 }
 
 
-#h2 {
-    margin-left: 8;
+#h2 
+{
+    margin-left: 10;
+    font-size: 27px;
     display: inline-flex;
     color: #DE9C50;
     text-shadow: 2px 2px 2px #7A7876;
 }
 
-#h2 .butt {
+#h2 .butt 
+{
     float:left;
     left:0;
     margin-right: 10px;
@@ -506,20 +555,36 @@ section{
     box-shadow: 2px 2px 3px #DEB887;
 }
 
-#h2 .butt:hover {
+#h2 .butt:hover 
+{
     cursor: pointer;
     background-color: aliceblue;
     box-shadow: 4px 4px 3px #787474;
 }
 
-#h2 .miles {
+#h2 .miles 
+{
     position: absolute;
     margin-left: 30;
-    margin-top: 5;
-    left: 35%;
+    margin-top: 6;
+    left: 28%;
     right:auto;
-    top: 7%;
+    top: 10%;
     text-shadow: none;
+    opacity: .7;
+}
+
+
+#h2 .duration 
+{
+    position: absolute;
+    margin-left: 30;
+    margin-top: 6;
+    right: 20%;
+    left:auto;
+    top: 10%;
+    text-shadow: none;
+    opacity: .7;
 }
 
 #h2 a:hover
@@ -527,22 +592,26 @@ section{
     cursor: pointer;
     color: grey;
 }
+
 .section-content
 {
     padding-left: 2%;
 }
 
-.w3-container > ul{
+.w3-container > ul
+{
     margin-top: 15px;
 }
 
 
-#home2{
+#home2
+{
     padding-bottom: 10px;
 }
 
 
-#left-holder{
+#left-holder
+{
     height: 100%;
     width: 15%;
     position: absolute;
@@ -550,7 +619,8 @@ section{
     top: 0px;
 }
 
-#right-holder {
+#right-holder 
+{
     height: 100%;
     width: 15%;
     position: absolute;
@@ -558,26 +628,31 @@ section{
     top: 0px;
 }
 
-#left-holder:hover{
+#left-holder:hover
+{
     background-color: rgba(0,0,0,0.5);
 
 }
 
-#right-holder:hover{
+#right-holder:hover
+{
     background-color: rgba(0,0,0,0.5);
 
 }
 
-.leftArrow {
+.leftArrow 
+{
     left: 0px;
 }
 
-.rightArrow {
+.rightArrow 
+{
     right: 0px;
 }
 
 
-#left-holder img, #right-holder img {
+#left-holder img, #right-holder img
+{
     height: 50px;
     width: 50px;
     position: absolute;
@@ -592,16 +667,18 @@ section{
     background-clip: padding-box;
 }
 
-.fl-left{
+.fl-left
+{
     width: 80%;
     float: left;
     padding-top: 2%;
 }
 
-.fl-left > div:first-child{
+.fl-left > div:first-child
+{
     width: 100%;
     background-color:beige;
-    height: 330px;
+    height: 350px;
 	position: relative;
 	margin: auto;
 	max-width: 90%;
@@ -609,11 +686,13 @@ section{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
-.fl-left > div:first-child:hover, .fl-left > div:last-child:hover, .fl-right > div:first-child:hover, .fl-right > div:last-child:hover{
+.fl-left > div:first-child:hover, .fl-left > div:last-child:hover, .fl-right > div:first-child:hover, .fl-right > div:last-child:hover
+{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5);
 }
 
-.fl-left > div:first-child > div{
+.fl-left > div:first-child > div
+{
     height: 250px;
     border-top-style: solid;
     border-top-width: 1px;
@@ -621,7 +700,8 @@ section{
     
 }
 
-.fl-left2{
+.fl-left2
+{
     width: 85%;
     float: left;
 	max-width: 120%;
@@ -630,7 +710,8 @@ section{
 	padding: 15px;
 }
 
-.fl-left2 > div:first-child{
+.fl-left2 > div:first-child
+{
     width: 89%;
     background-color:beige;
     height: 460px;
@@ -638,45 +719,53 @@ section{
     transition: 0.3s;
 }
 
-.fl-left2 > div:first-child:hover, .fl-left2 > div:last-child:hover, .fl-right > div:first-child:hover, .fl-right > div:last-child:hover{
+.fl-left2 > div:first-child:hover, .fl-left2 > div:last-child:hover, .fl-right > div:first-child:hover, .fl-right > div:last-child:hover
+{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
 }
 
-.fl-left2 > div:first-child > div{
+.fl-left2 > div:first-child > div
+{
     height: 100%;
     border-top-style: solid;
     border-top-width: 1px;
     border-top-color: lightgray;
 }
 
-.list-item{
+.list-item
+{
     width: 45%;
     float: left;
 }
 
-.list-item > ol{
+.list-item > ol
+{
     font-size: 20px;
     margin: auto;
     margin-top: 10px;
 }
 
-.list-item2{
+.list-item2
+{
     width: 100%;
     float: left;
 }
 
-.list-item2 > ol{
+.list-item2 > ol
+{
     font-size: 20px;
     margin: auto;
     margin-top: 10px;
 }
 
-@-webkit-keyframes fadeEffect {
+@-webkit-keyframes fadeEffect 
+{
 	from {opacity: 0;}
 	tp {opacity: 1;}
 }
 
-@keyframes fadeEffect {
+@keyframes fadeEffect 
+{
 	from {opacity: 0;}
 	tp {opacity: 1;}
 }
