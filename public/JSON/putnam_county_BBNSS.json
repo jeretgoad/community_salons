@@ -1,7 +1,8 @@
 [
     {
             "name": "Slick Spot",
-            "types": ["beauty", "style"], 
+            "types": ["beauty", "style"],
+            "setUp": "Appointment",
             "address": "1800 W, Cookeville, TN, 38501",
             "latitude": 42.66675,
             "longitude": -82.2230000002,
@@ -24,6 +25,7 @@
     {
             "name": "Style Cutz",
             "types": ["barber", "beauty", "spa", "style"],
+            "setUp": "Walk-in/Appointment",
             "address": "540 E, Cookeville, TN, 38501",
             "latitude": 33.3960021,
             "longitude": -84.6922230000002,
@@ -46,6 +48,7 @@
     {
             "name": "Beaut Cutz",
             "types": ["barber","beauty", "style"],
+            "setUp": "Walk-in/Appointment",
             "address": "888 N, Cookeville, TN, 38501",
             "latitude": 36.809631,
             "longitude": -85.6492200002,
@@ -68,6 +71,7 @@
     {
             "name": "Randy's Hotspot",
             "types": ["barber", "nail", "spa"],
+            "setUp": "Walk-in",
             "address": "44 S, Cookeville, TN, 38501",
             "latitude": 34.3679631,
             "longitude": -89.649456002,
@@ -90,6 +94,7 @@
     {
             "name": "Barber 101",
             "types": ["barber"],
+            "setUp": "Appointment",
             "address": "Davidson St, Cookeville, TN, 38501",
             "latitude": 38.23631,
             "longitude": -83.6495440000002,
@@ -112,6 +117,7 @@
     {
             "name": "Buzz",
             "types": ["barber"],
+            "setUp": "Walk-in",
             "address": "Broadway S, Cookeville, TN, 38501",
             "latitude": 36.3679631,
             "longitude": -85.64922230000002,
@@ -134,6 +140,7 @@
     {
             "name": "Sally's Spot",
             "types": ["nail", "style"],
+            "setUp": "Walk-in/Appointment",
             "address": "Bake St, Cookeville, TN, 38501",
             "latitude": 35.700393,
             "longitude": -83.620000002,
@@ -156,6 +163,7 @@
     {
             "name": "We Did Em",
             "types": ["nail"],
+            "setUp": "Appointment",
             "address": "Broadway S, Cookeville, TN, 38501",
             "latitude": 41.3679631,
             "longitude": -83.643000002,
@@ -178,6 +186,7 @@
     {
             "name": "County Nails",
             "types": ["beauty", "nail"],
+            "setUp": "Walk-in/Appointment",
             "address": "Broadway S, Cookeville, TN, 38501",
             "latitude": 35.1623362,
             "longitude": -85.4621056,

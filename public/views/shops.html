@@ -3,15 +3,25 @@
     <div class="fl-left">
         <div>
             <h2 id="h2">
-                <a href = "{{salon.link}}" target ="_blank">
-                    <div class = "butt"></div>
-                </a>
-                {{salon.name}}
-                <div class = "miles">
+                <div class = "h2HolderT">
+                    <a href = "{{salon.link}}" target ="_blank">
+                        <div class = "butt"></div>
+                    </a>
+                    {{salon.name}}
+                </div>
+                <div class = "h2HolderM">
                     Distance: {{salon.distance}} miles
                 </div>
-                <div class = "duration">
+                <div class = "h2HolderD">
                     Duration: {{salon.duration}}
+                </div>
+                <div class = "h2HolderDir">
+                    Direction:
+                    <div id = "directions">
+                    <a href = "/map">
+                        <img class = "dir" src = "../IMG/dir_arrow.png" />
+                    </a>
+                    </div>
                 </div>
             </h2>
             <div>
@@ -37,6 +47,13 @@
                     </div>
                     <div class = "info">
                         <div class = "shopTag">
+                            Type: 
+                        </div>
+                        <div class = "discr">
+                            {{salon.setUp}}
+                        </div>
+                        <br>
+                        <div class = "shopTag">
                             Schedule:
                         </div>
                         <div class = "discr">
@@ -60,7 +77,7 @@
                         </div> 
                         <div class = "discr">
                             {{salon.phone}}
-                        </div>
+                        </div> 
                     </div> 
                 </div>
                 <div class = "info2">

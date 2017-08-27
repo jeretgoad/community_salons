@@ -24,7 +24,7 @@
     {
       var workersArray = function()
       {
-          return $http.get("/workers"); 
+          return $http.get("../JSON/community_salons_worker.json"); 
       }
       
       var addWorker = function(worker)
@@ -81,28 +81,39 @@
             currIndex: 1,
             nextIndex: 2
         }
-    }
+    };
     
-    var headerController = function($scope, indexModel, shopType, putnam_county_adv, $location)
+    
+    var headerController = function($scope, indexModel, shopType, putnam_county_adv, $location, $route)
     {
         $scope.advertisements = [];
+        var shops = ["barber", "beauty", "nail", "spa", "style"];
+        
         $scope.alterType = function(typeShop)
         {
             if(typeShop === "home")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/");
-                }
-            else if(typeShop === "us")
-                {
-                    shopType.type = typeShop;
-                    $location.path("/us");
-                }
-            else
-                {
+            {
                 shopType.type = typeShop;
-                $location.path("/shops");
+                $location.path("/");
+            }
+            else if(typeShop === "us")
+            {
+                shopType.type = typeShop;
+                $location.path("/us");
+            }
+            else
+            {
+                if(shops.includes(shopType.type))
+                {
+                    shopType.type = typeShop;
+                    $route.reload();
                 }
+                else
+                {
+                    shopType.type = typeShop;
+                    $location.path("/shops");
+                }
+            }
         }
         $scope.isActive = function(type)
         {
@@ -158,42 +169,33 @@
             }
         });
     }
-    var homeController = function($scope, putnam_county_BBNSS, $location)
-    {
-        $scope.nearBarbers = [];
-        $scope.nearBeauties = [];
-        $scope.nearNails = [];
-        $scope.nearSpas = [];
-        $scope.nearStyles = [];
-        var AllTheSalons = [];
-        putnam_county_BBNSS.allSalons()
-            .then(function(data) {
-            $scope.AllTheSalons = data.data;
-            getDistance($scope, $scope.AllTheSalons, function(err) {
-                if(!err) {
-                    console.log("test: " + $scope.AllTheSalons[0].distance);
-                    $scope.nearBarbers = shops_filter("barber", $scope.AllTheSalons);
-                    $scope.nearBeauties = shops_filter("beauty", $scope.AllTheSalons);
-                    $scope.nearNails = shops_filter("nail", $scope.AllTheSalons);
-                    $scope.nearSpas = shops_filter("spa", $scope.AllTheSalons);
-                    $scope.nearStyles = shops_filter("style", $scope.AllTheSalons);
+    
+    
+    var homeController = function($scope, $rootScope)
+    {   
+        $scope.nearBarbers = shops_filter("barber", $rootScope.salons);
+        $scope.nearBeauties = shops_filter("beauty", $rootScope.salons);
+        $scope.nearNails = shops_filter("nail", $rootScope.salons);
+        $scope.nearSpas = shops_filter("spa", $rootScope.salons);
+        $scope.nearStyles = shops_filter("style", $rootScope.salons);
+        
+        $scope.checker = function()
+        {
+            if($rootScope.salons[0].duration.length > 0)
+                {
+                    return true;
                 }
-            });
-        });
-        
-        
+            else
+                {
+                    return false;
+                }
+        }
     }
-    var shopController = function($scope, shopType, putnam_county_BBNSS, $location)
+    
+    var shopController = function($scope, $rootScope, shopType)
     {
-        putnam_county_BBNSS.allSalons()
-            .then(function(data) {
-            AllTheSalons = data.data;
-            getDistance($scope, AllTheSalons, function(err) {
-                if(!err) {
-                    $scope.salons = shops_filter(shopType.type, AllTheSalons);
-                }
-            });
-            $scope.prevIndex = function(salon)
+        $scope.salons = shops_filter(shopType.type, $rootScope.salons);
+        $scope.prevIndex = function(salon)
             {
                 salon.index--;
             }
@@ -202,25 +204,23 @@
             {
                 salon.index++;
             }
-        });
-        
     }
     
-    var usController = function($scope, usModelD, $location)
+    var usController = function($scope, usModelD)
     {
-        $scope.workers = [];
-        var temp = [];
         usModelD.allWorkers()
             .then(function(data) {
-            temp = data.data;
+            var temp = data.data;
+            console.log(temp.length);
             $scope.workers = workersFilter(temp);
         });
     }
     
-    var mapController = function($scope)
+    var mapController = function($scope, $rootScope, salonUpdates)
     {
         
     }
+    
     
     //filters out the specific shops for that controller
     var shops_filter = function(type, salonArray)
@@ -235,6 +235,7 @@
             }
         return salons;
     };
+    
     
     // filters the workers out in order
     var workersFilter = function(workersArray)
@@ -269,7 +270,7 @@
     
     
     //get user geolocation and return it
-	var getDistance = function($scope, allSalons, cb) {
+	var salonUpdates = function(allSalons, cb) {
         var origin = {lat:0, lng:0};
 		if (navigator.geolocation) 
         {
@@ -311,7 +312,7 @@
                                 allSalons[j].duration = results[j].duration.text;
                             }
                         }
-                        cb(null);
+                        cb(null, allSalons);
                     }
                 });
 		  });
@@ -358,15 +359,32 @@
     
     angular
     .module("community-salons")
+    .config(['$routeProvider', '$locationProvider', routingConfig])
     .controller("headerController", headerController)
     .controller("homeController", homeController)
     .controller("shopController", shopController)
     .controller("usController", usController)
     .controller("mapController", mapController)
-    .config(['$routeProvider', '$locationProvider', routingConfig])
     .service("shopType", shopType)
     .service("usModelD", usModel)
     .service("putnam_county_adv", putnam_county_adv)
     .service("putnam_county_BBNSS", putnam_county_BBNSS)
     .service("indexModel", indexModel)
+    .run(function($rootScope, putnam_county_BBNSS) {
+        console.log("run");
+        putnam_county_BBNSS.allSalons()
+            .then(function(data) {
+            $rootScope.salons = data.data;
+            salonUpdates($rootScope.salons, function(err, oldSalons) {
+                if(!err)
+                {
+                    $rootScope.salons = oldSalons;   
+                }
+                else
+                {
+                    console.log(err);        
+                }
+            });
+        });
+    })
 })();

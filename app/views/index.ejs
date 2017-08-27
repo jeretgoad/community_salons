@@ -8,14 +8,14 @@
 <body>
     <!-- angular templates -->
     <header ng-controller = "headerController" ng-include="'/views/header.html'"></header>
-    <div ng-view></div>
+    <div ng-view class = "ng-scope"></div>
     
     <!-- scripts -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
     <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfg9uOMb7h7p6PYtdsxyOD8den3YLBNT0&callback=getDistance"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlobVo4M27lwMlE46JrVL_g7w7nKlIabI&callback=salonUpdates"></script>
     <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
     <script type="text/javascript" src="/js/slideShow.js"></script>

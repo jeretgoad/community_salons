@@ -2,7 +2,7 @@
 <div class = "column-board">
     <div class = "columns"><b>Barbers Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBarbers | orderBy: 'distance'">
+            <div class = "nearest" ng-repeat = "salon in nearBarbers | orderBy: 'distance'" ng-show = "checker()">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -20,7 +20,7 @@
     </div>
     <div class = "columns"><b>Beauty Salons</b><br> <br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearBeauties | orderBy: 'distance'">
+            <div class = "nearest" ng-repeat = "salon in nearBeauties | orderBy: 'distance'" ng-show = "checker()">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -38,7 +38,7 @@
     </div>
     <div class = "columns"><b>Nail Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearNails | orderBy: 'distance'">
+            <div class = "nearest" ng-repeat = "salon in nearNails | orderBy: 'distance'" ng-show = "checker()">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -56,7 +56,7 @@
     </div>
     <div class = "columns"><b>Day Spas</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearSpas | orderBy: 'distance'">
+            <div class = "nearest" ng-repeat = "salon in nearSpas | orderBy: 'distance'" ng-show = "checker()">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
@@ -74,7 +74,7 @@
     </div>
     <div class = "columns"><b>Style Salons</b><br><br>
         <b>
-            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance'">
+            <div class = "nearest" ng-repeat = "salon in nearStyles | orderBy: 'distance'" ng-show = "checker()">
                 <div class = "homeShops">
                     <a href = "{{salon.link}}" target ="_blank">
                         <div class = "butt"></div>
