@@ -38,6 +38,33 @@
       }
     };
     
+    var salonDirections = function()
+    {
+        return {
+            name: "",
+            types: [],
+            setUp: "",
+            address: "",
+            latitude: 0,
+            longitude: 0,
+            phone: "",
+            owner: "",
+            Monday: "",
+            Tuesday:"",
+            Wednesday:"",
+            Thursday: "",
+            Friday: "",
+            Saturday: "",
+            Sunday: "",
+            distance: "",
+            duration: "",
+            index: 0,
+            ownImg: "",
+            img: [""],
+            link: ""
+        }
+    }
+    
     var putnam_county_adv = function($http)
     {
         var adverArray = function()
@@ -171,17 +198,30 @@
     }
     
     
-    var homeController = function($scope, $rootScope)
+    var homeController = function($scope, $rootScope, shopType, salonDirections, $location)
     {   
-        $scope.nearBarbers = shops_filter("barber", $rootScope.salons);
-        $scope.nearBeauties = shops_filter("beauty", $rootScope.salons);
-        $scope.nearNails = shops_filter("nail", $rootScope.salons);
-        $scope.nearSpas = shops_filter("spa", $rootScope.salons);
-        $scope.nearStyles = shops_filter("style", $rootScope.salons);
+        var salonzo = $rootScope.salons.salonzo;
+        $scope.nearBarbers = shops_filter("barber", salonzo);
+        $scope.nearBeauties = shops_filter("beauty", salonzo);
+        $scope.nearNails = shops_filter("nail", salonzo);
+        $scope.nearSpas = shops_filter("spa", salonzo);
+        $scope.nearStyles = shops_filter("style", salonzo);
+        $scope.shops = function(typeShop)
+        {
+            shopType.type = typeShop;
+            $location.path("/shops");
+        }
+        
+        $scope.maps = function(salon)
+        {
+            salonDirections = salon;
+            console.log(salonDirections.name);
+            $location.path("/map");
+        }
         
         $scope.checker = function()
         {
-            if($rootScope.salons[0].duration.length > 0)
+            if(salonzo[0].duration.length > 0)
                 {
                     return true;
                 }
@@ -192,33 +232,46 @@
         }
     }
     
-    var shopController = function($scope, $rootScope, shopType)
+    var shopController = function($scope, $rootScope, shopType, salonDirections, $location)
     {
-        $scope.salons = shops_filter(shopType.type, $rootScope.salons);
+        $scope.salons = shops_filter(shopType.type, $rootScope.salons.salonzo);
+
         $scope.prevIndex = function(salon)
-            {
-                salon.index--;
-            }
+        {
+            salon.index--;
+        }
         
-            $scope.nextIndex = function(salon)
-            {
-                salon.index++;
-            }
+        $scope.nextIndex = function(salon)
+        {
+            salon.index++;
+        }
+        
+        $scope.maps = function(salon)
+        {
+            salonDirections = salon;
+            console.log(salonDirections.name);
+            $location.path("/map");
+        }
     }
     
-    var usController = function($scope, usModelD)
+    var usController = function($scope, usModelD, $location)
     {
         usModelD.allWorkers()
             .then(function(data) {
             var temp = data.data;
-            console.log(temp.length);
             $scope.workers = workersFilter(temp);
         });
     }
     
-    var mapController = function($scope, $rootScope, salonUpdates)
+    var mapController = function($scope, $rootScope, salonDirections, $location)
     {
-        
+        var origin = $rootScope.salons[1];
+        console.log(origin.lat + ", " + origin.lng);
+        var mapOptions = {
+                  zoom: 4,
+                  center: new google.maps.LatLng(origin.lat,origin.lng),
+                  mapTypeId: google.maps.MapTypeId.TERRAIN
+              }
     }
     
     
@@ -277,13 +330,14 @@
             navigator.geolocation.getCurrentPosition(function (position) {
                 origin.lat = position.coords.latitude;
                 origin.lng = position.coords.longitude;
+                allSalons.coords = origin;
                 var allCoords = [];
-                for(var i = 0; i < allSalons.length; i++)
+                for(var i = 0; i < allSalons.salonzo.length; i++)
                 {
                     var coords = {lat: 0, lng: 0};
                     var salonUpdates = {lat:0, lng:0, distance:"", duration:""};
-                    coords.lat = allSalons[i].latitude;
-                    coords.lng = allSalons[i].longitude;
+                    coords.lat = allSalons.salonzo[i].latitude;
+                    coords.lng = allSalons.salonzo[i].longitude;
                     allCoords.push(coords);
                 }
                 var service = new google.maps.DistanceMatrixService;
@@ -308,8 +362,8 @@
                             var results = response.rows[i].elements;
                             for (var j = 0; j < results.length; j++) 
                             {
-                                allSalons[j].distance = mySplit(results[j].distance.text);
-                                allSalons[j].duration = results[j].duration.text;
+                                allSalons.salonzo[j].distance = mySplit(results[j].distance.text);
+                                allSalons.salonzo[j].duration = results[j].duration.text;
                             }
                         }
                         cb(null, allSalons);
@@ -370,15 +424,16 @@
     .service("putnam_county_adv", putnam_county_adv)
     .service("putnam_county_BBNSS", putnam_county_BBNSS)
     .service("indexModel", indexModel)
+    .service("salonDirections", salonDirections)
     .run(function($rootScope, putnam_county_BBNSS) {
-        console.log("run");
+        $rootScope.salons = {salonzo:[], coords:{lat:0, lng:0}};
         putnam_county_BBNSS.allSalons()
             .then(function(data) {
-            $rootScope.salons = data.data;
+            $rootScope.salons.salonzo = data.data;
             salonUpdates($rootScope.salons, function(err, oldSalons) {
                 if(!err)
                 {
-                    $rootScope.salons = oldSalons;   
+                    $rootScope.salonzo = oldSalons;
                 }
                 else
                 {

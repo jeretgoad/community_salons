@@ -434,6 +434,11 @@ section
     text-shadow: none;
 }
 
+.miles:hover
+{
+    cursor: pointer;
+    color: purple;
+}
 .dropbtn 
 {
     background-color: black;
@@ -556,7 +561,7 @@ section
 {
     position: relative;
     width:100%;
-    height:15%;
+    height:10%;
     display: inline-flex;
 }
 
@@ -584,7 +589,7 @@ section
     margin-top:1.5%;
     height: 120%;
     width:20%;
-    left:28%;
+    left:33%;
 }
 
 .h2HolderD 
@@ -593,7 +598,7 @@ section
     margin-top:1.5%;
     height: 120%;
     width:29%;
-    left:52%;
+    left:60%;
 }
 
 .h2HolderDir
@@ -601,14 +606,14 @@ section
     position: absolute;
     margin-top:1.5%;
     height: 120%;
-    width:18%;
-    left:81%;
+    width:10%;
+    left:89%;
 }
 
 .dir
 {
     right:0;
-    margin-top: -5%;
+    margin-top: -29%;
     margin-bottom: 1%;
 }
 
@@ -617,9 +622,10 @@ section
 #directions img
 {
     position: absolute;
-    height:.01px;
-    width:.02px;
+    height:1%;
+    width:1%;
     top:0;
+    box-shadow: none;
 }
 
 #h2 .butt 
@@ -815,6 +821,49 @@ section
     margin: auto;
     margin-top: 10px;
 }
+
+/* MAP */
+#map
+{
+    height:500px; 
+    width:500px; 
+    box-shadow: 3px 3px 10px gray;
+}
+
+#repeat
+{
+    display: inline;
+}
+
+#country_container 
+{
+    width: 1000px; 
+    margin: 13px 3px 3px 0px; 
+    text-align: center; 
+    width: 85px; 
+    padding: 4px; 
+    display: inline-table;  
+    color: white; 
+    background-color: black; 
+    font-size: 12px; 
+    cursor: pointer;
+    border: 1px solid black; 
+    border-radius:13px; 
+}
+
+#country_container:hover 
+{ 
+     box-shadow: 0px 0px 10px black;
+     background-color: gray; 
+     border: 1px solid gray; 
+     cursor: pointer; 
+}
+
+#names 
+{
+    cursor: pointer; 
+}
+
 
 @-webkit-keyframes fadeEffect 
 {
