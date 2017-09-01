@@ -38,33 +38,6 @@
       }
     };
     
-    var salonDirections = function()
-    {
-        return {
-            name: "",
-            types: [],
-            setUp: "",
-            address: "",
-            latitude: 0,
-            longitude: 0,
-            phone: "",
-            owner: "",
-            Monday: "",
-            Tuesday:"",
-            Wednesday:"",
-            Thursday: "",
-            Friday: "",
-            Saturday: "",
-            Sunday: "",
-            distance: "",
-            duration: "",
-            index: 0,
-            ownImg: "",
-            img: [""],
-            link: ""
-        }
-    }
-    
     var putnam_county_adv = function($http)
     {
         var adverArray = function()
@@ -198,7 +171,7 @@
     }
     
     
-    var homeController = function($scope, $rootScope, shopType, salonDirections, $location)
+    var homeController = function($scope, $rootScope, shopType, $location)
     {   
         var salonzo = $rootScope.salons.salonzo;
         $scope.nearBarbers = shops_filter("barber", salonzo);
@@ -214,8 +187,7 @@
         
         $scope.maps = function(salon)
         {
-            salonDirections = salon;
-            console.log(salonDirections.name);
+            salon.directions = 1;
             $location.path("/map");
         }
         
@@ -232,7 +204,7 @@
         }
     }
     
-    var shopController = function($scope, $rootScope, shopType, salonDirections, $location)
+    var shopController = function($scope, $rootScope, shopType, $location)
     {
         $scope.salons = shops_filter(shopType.type, $rootScope.salons.salonzo);
 
@@ -263,14 +235,54 @@
         });
     }
     
-    var mapController = function($scope, $rootScope, salonDirections, $location)
+    var mapController = function($scope, $rootScope, $location)
     {
-        var origin = $rootScope.salons[1];
-        console.log(origin.lat + ", " + origin.lng);
+        var origin = {lat: 0, lng: 0};
+        origin.lat = $rootScope.salons.coords.lat;
+        origin.lng = $rootScope.salons.coords.lng;
+        for(var i = 0; i < $rootScope.salons.salonzo.length; i++)
+            {
+                if($rootScope.salons.salonzo[i].directions === 1)
+                    {
+                        var salon = $rootScope.salons.salonzo[i];
+                        $rootScope.salons.salonzo[i].directions = 0;
+                        break;
+                    }
+            }
         var mapOptions = {
                   zoom: 4,
                   center: new google.maps.LatLng(origin.lat,origin.lng),
                   mapTypeId: google.maps.MapTypeId.TERRAIN
+        }
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        
+        $scope.markers = [];
+              
+              var infoWindow = new google.maps.InfoWindow();
+              
+              var createMarker = function (info){
+                  
+                  var marker = new google.maps.Marker({
+                      map: $scope.map,
+                      position: new google.maps.LatLng(info.lat, info.lng),
+                      title: info.name
+                  });
+                  marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+                  
+                  google.maps.event.addListener(marker, 'click', function(){
+                      infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
+                      infoWindow.open($scope.map, marker);
+                  });
+                  
+                  $scope.markers.push(marker);
+                  
+              }  
+                createMarker(salon);
+              
+
+              $scope.openInfoWindow = function(e, selectedMarker){
+                  e.preventDefault();
+                  google.maps.event.trigger(selectedMarker, 'click');
               }
     }
     
@@ -424,7 +436,6 @@
     .service("putnam_county_adv", putnam_county_adv)
     .service("putnam_county_BBNSS", putnam_county_BBNSS)
     .service("indexModel", indexModel)
-    .service("salonDirections", salonDirections)
     .run(function($rootScope, putnam_county_BBNSS) {
         $rootScope.salons = {salonzo:[], coords:{lat:0, lng:0}};
         putnam_county_BBNSS.allSalons()
