@@ -817,13 +817,39 @@ section
 }
 
 /* MAP */
-#map
+#map 
 {
-    height:100%; 
-    width:90%;
-    align-content: center;
-    margin: auto;
-    box-shadow: 3px 3px 10px gray;
+    height: 100%;
+}
+
+#right-panel 
+{
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+#right-panel select, #right-panel input 
+{
+    font-size: 15px;
+}
+
+#right-panel select 
+{
+    width: 100%;
+}
+
+#right-panel i 
+{
+    font-size: 12px;
+}
+
+#right-panel 
+{
+    height: 100%;
+    float: right;
+    width: 390px;
+    overflow: auto;
 }
 
 #repeat
@@ -831,34 +857,26 @@ section
     display: inline;
 }
 
-#country_container 
+#map 
 {
-    width: 1000px; 
-    margin: 13px 3px 3px 0px; 
-    text-align: center; 
-    width: 85px; 
-    padding: 4px; 
-    display: inline-table;  
-    color: white; 
-    background-color: black; 
-    font-size: 12px; 
-    cursor: pointer;
-    border: 1px solid black; 
-    border-radius:13px; 
+    margin-right: 400px;
 }
 
-#country_container:hover 
-{ 
-     box-shadow: 0px 0px 10px black;
-     background-color: gray; 
-     border: 1px solid gray; 
-     cursor: pointer; 
+@media print 
+{
+    #map 
+    {
+        height: 100%;
+        margin: auto;
+    }
+    #right-panel 
+    {
+        float: none;
+        width: auto;
+    }
 }
 
-#names 
-{
-    cursor: pointer; 
-}
+
 
 
 @-webkit-keyframes fadeEffect 

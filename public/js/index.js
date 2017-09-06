@@ -220,8 +220,8 @@
         
         $scope.maps = function(salon)
         {
-            salonDirections = salon;
-            console.log(salonDirections.name);
+            salon.directions = 1;
+            shopType.type = "map";
             $location.path("/map");
         }
     }
@@ -237,7 +237,10 @@
     
     var mapController = function($scope, $rootScope, $location)
     {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
         var origin = {lat: 0, lng: 0};
+        var dest = {lat:0, lng: 0};
         origin.lat = $rootScope.salons.coords.lat;
         origin.lng = $rootScope.salons.coords.lng;
         for(var i = 0; i < $rootScope.salons.salonzo.length; i++)
@@ -245,46 +248,42 @@
                 if($rootScope.salons.salonzo[i].directions === 1)
                     {
                         var salon = $rootScope.salons.salonzo[i];
+                        dest.lat = salon.latitude;
+                        dest.lng = salon.longitude;
                         $rootScope.salons.salonzo[i].directions = 0;
                         break;
                     }
             }
-        var mapOptions = {
-                  zoom: 4,
-                  center: new google.maps.LatLng(origin.lat,origin.lng),
-                  mapTypeId: google.maps.MapTypeId.TERRAIN
-        }
-        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: {lat: origin.lat, lng: origin.lng},
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        });
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
         
-        $scope.markers = [];
-              
-              var infoWindow = new google.maps.InfoWindow();
-              
-              var createMarker = function (info){
-                  
-                  var marker = new google.maps.Marker({
-                      map: $scope.map,
-                      position: new google.maps.LatLng(info.lat, info.lng),
-                      title: info.name
-                  });
-                  marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-                  
-                  google.maps.event.addListener(marker, 'click', function(){
-                      infoWindow.setContent('<h3>' + marker.title + '</h3>' + marker.content);
-                      infoWindow.open($scope.map, marker);
-                  });
-                  
-                  $scope.markers.push(marker);
-                  
-              }  
-                createMarker(salon);
-              
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var start = origin;
+            var end = dest;
+            console.log("star: " +start.lat + ", " + start.lng + " end: " + end.lat + ", " + end.lng);
+            
+            directionsService.route({
+                origin: start,
+                destination: end,
+                travelMode: 'DRIVING'
+            }, function(response, status) {
+                if (status === 'OK') {
+                    console.log("ok");
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
 
-              $scope.openInfoWindow = function(e, selectedMarker){
-                  e.preventDefault();
-                  google.maps.event.trigger(selectedMarker, 'click');
-              }
-    }
+      }
+
     
     
     //filters out the specific shops for that controller
